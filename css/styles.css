@@ -1,0 +1,733 @@
+/* Estilos generales del body */
+body {
+    font: 400 1em/1.5 "Plus Jakarta Sans", sans-serif;
+    background: #090d00;
+    color: rgba(255,255,255,.25);
+    text-align: center;
+    margin: 0;
+}
+
+/* Estilos para la sección hero (cabecera) */
+.hero {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+/* Estilos para el contenedor del nombre y subtítulo */
+.hero p {
+    text-transform: uppercase;
+    letter-spacing: .5em;
+    display: inline-block;
+    border: 4px double rgba(255,255,255,.25);
+    border-width: 4px 0;
+    padding: 1.5em 0em;
+    width: 80%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Estilos para el nombre principal */
+.hero span {
+    font: 700 8vw/1 "Oswald", sans-serif;
+    letter-spacing: 0;
+    padding: .25em 0 .325em;
+    display: block;
+    margin: 0 auto;
+    text-shadow: 0 0 10px rgba(206, 189, 189, 0.5);
+    background: url(https://i.ibb.co/RDTnNrT/animated-text-fill.png) repeat-x;
+    background-size: 2000% 100%;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: aitf 80s linear infinite;
+    transform: translate3d(0,0,0);
+    backface-visibility: hidden;
+}
+
+/* Estilos para el subtítulo */
+.hero .subtitle {
+    font-size: 1.5em;
+    font-family: 'Neuton', serif;
+    color: #DE9150;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+    margin-top: 20px;
+    letter-spacing: 0.1em;
+    font-weight: bold;
+    background: none;
+    -webkit-text-fill-color: #DE9150;
+    animation: none;
+}
+
+        /* Estilos para la timeline */
+        .timeline {
+    overflow-x: auto;
+    padding: 30px 0 50px 0;
+    position: relative;
+}
+
+.timeline ol {
+    font-size: 0;
+    width: max-content;
+    padding: 250px 0;
+    transition: all 1s;
+}
+
+.timeline ol li {
+    position: relative;
+    display: inline-block;
+    list-style-type: none;
+    width: 160px;
+    height: 3px;
+    background: rgba(255,255,255,0.1);
+}
+
+.timeline ol li:last-child {
+    width: 280px;
+}
+
+.timeline ol li:not(:first-child) {
+    margin-left: 14px;
+}
+
+.timeline ol li:not(:last-child)::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: calc(100% + 1px);
+    bottom: 0;
+    width: 12px;
+    height: 12px;
+    transform: translateY(-50%);
+    border-radius: 50%;
+    background: #DE9150;
+}
+
+.timeline ol li div {
+    position: absolute;
+    left: calc(100% + 7px);
+    width: 280px;
+    padding: 15px;
+    font-size: 1rem;
+    white-space: normal;
+    color: rgba(255,255,255,0.75);
+    background: rgba(255,255,255,0.1);
+    border-radius: 5px;
+}
+
+.timeline ol li div::before {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 0;
+    height: 0;
+    border-style: solid;
+}
+
+.timeline ol li:nth-child(odd) div {
+    top: -16px;
+    transform: translateY(-100%);
+}
+
+.timeline ol li:nth-child(odd) div::before {
+    top: 100%;
+    border-width: 8px 8px 0 0;
+    border-color: rgba(255,255,255,0.1) transparent transparent transparent;
+}
+
+.timeline ol li:nth-child(even) div {
+    top: calc(100% + 16px);
+}
+
+.timeline ol li:nth-child(even) div::before {
+    top: -8px;
+    border-width: 8px 0 0 8px;
+    border-color: transparent transparent transparent rgba(255,255,255,0.1);
+}
+
+.timeline time {
+    display: block;
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-bottom: 8px;
+    color: #DE9150;
+}
+
+/* Animación para el texto del nombre */
+@keyframes aitf {
+    0% { background-position: 100% 50%; }
+    100% { background-position: 30% 50%; }
+}
+
+/* Estilos para la flecha de desplazamiento */
+.scroll-arrow {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    animation: bounce 2s infinite;
+    color: #DE9150;
+}
+
+/* Animación de rebote para la flecha */
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+    40% { transform: translateY(-30px); }
+    60% { transform: translateY(-15px); }
+}
+
+/* Estilos para el contenido principal */
+.content {
+    background: #090d00;
+    color: rgba(255,255,255,.75);
+}
+
+/* Estilos comunes para las secciones de contenido */
+.portfolio, .about, .skills-cv-container, .contact {
+    padding: 50px 5%;
+    width: 80%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Estilos para los títulos de sección */
+h2 {
+    font-family: 'Oswald', sans-serif;
+    font-size: 2.5em;
+    margin-bottom: 30px;
+    text-align: center;
+    color: #DE9150;
+}
+
+/* Estilos para la cuadrícula de trabajos */
+.work-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+/* Estilos para cada elemento de trabajo */
+.work-item {
+    background-color: rgba(255,255,255,0.1);
+    border-radius: 10px;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.work-item:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.work-item img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.work-item-content {
+    padding: 20px;
+}
+
+.work-item h3 {
+    margin-top: 0;
+    font-family: 'Oswald', sans-serif;
+    color: #DE9150;
+}
+
+.work-item p {
+    font-size: 0.9em;
+    color: rgba(255,255,255,0.75);
+}
+
+/* Estilos para la sección de habilidades y CV */
+.skills-cv-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: stretch;
+}
+
+.skills, .cv-section {
+    flex: 1;
+    padding: 20px;
+    background-color: rgba(9, 13, 0, 1);
+}
+
+.skills {
+    border-right: 2px solid rgba(255,255,255,.25);
+}
+
+.cv-button {
+    background-color: #DE9150;
+    color: #090d00;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1.2em;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.cv-button:hover {
+    background-color: #ffba6b;
+}
+
+/* Estilos para los iconos de software */
+.software-icons {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.software-icon {
+    width: 60px;
+    height: 60px;
+    margin: 10px;
+}
+
+/* Estilos para los enlaces en la sección de contacto */
+.contact a {
+    color: #DE9150;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.contact a:hover {
+    color: #ffba6b;
+}
+
+/* Estilos para la barra de navegación */
+.nav-bar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(9, 13, 0, 0.8);
+    padding: 10px 0;
+    z-index: 1000;
+}
+
+.nav-bar ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+}
+
+.nav-bar li {
+    margin: 0 15px;
+}
+
+.nav-bar a {
+    color: rgba(255,255,255,.75);
+    text-decoration: none;
+    font-family: 'Neuton', sans-serif;
+    font-size: 1.2em;
+    transition: color 0.3s ease;
+}
+
+.nav-bar a:hover {
+    color: #DE9150;
+}
+
+/* Estilos para los iconos de redes sociales */
+.social-icons {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+.social-icon {
+    width: 30px;
+    height: 30px;
+    margin: 0 10px;
+    transition: transform 0.3s ease;
+}
+
+.social-icon:hover {
+    transform: scale(1.2);
+}
+
+/* Estilos actualizados para la timeline */
+.timeline {
+    overflow-x: auto;
+    padding: 30px 0;
+    position: relative;
+    width: 100%;
+    -webkit-overflow-scrolling: touch;
+}
+
+.timeline ol {
+    font-size: 0;
+    width: max-content;
+    padding: 0 0 250px 0;
+    white-space: nowrap;
+    transition: all 1s;
+}
+
+.timeline ol li {
+    position: relative;
+    display: inline-block;
+    list-style-type: none;
+    width: 160px;
+    height: 3px;
+    background: rgba(255,255,255,0.1);
+}
+
+.timeline ol li:last-child {
+    width: 280px;
+}
+
+.timeline ol li:not(:first-child) {
+    margin-left: 14px;
+}
+
+.timeline ol li:not(:last-child)::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: calc(100% + 1px);
+    bottom: 0;
+    width: 12px;
+    height: 12px;
+    transform: translateY(-50%);
+    border-radius: 50%;
+    background: #DE9150;
+}
+
+.timeline ol li div {
+    position: absolute;
+    left: calc(100% + 7px);
+    width: 280px;
+    padding: 15px;
+    font-size: 1rem;
+    white-space: normal;
+    color: rgba(255,255,255,0.75);
+    background: rgba(255,255,255,0.1);
+    border-radius: 5px;
+}
+
+.timeline ol li div::before {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 0;
+    height: 0;
+    border-style: solid;
+}
+
+.timeline ol li:nth-child(odd) div {
+    top: -16px;
+    transform: translateY(-100%);
+}
+
+.timeline ol li:nth-child(odd) div::before {
+    top: 100%;
+    border-width: 8px 8px 0 0;
+    border-color: rgba(255,255,255,0.1) transparent transparent transparent;
+}
+
+.timeline ol li:nth-child(even) div {
+    top: calc(100% + 16px);
+}
+
+.timeline ol li:nth-child(even) div::before {
+    top: -8px;
+    border-width: 8px 0 0 8px;
+    border-color: transparent transparent transparent rgba(255,255,255,0.1);
+}
+
+.timeline time {
+    display: block;
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-bottom: 8px;
+    color: #DE9150;
+}
+@media (max-width: 768px) {
+    .nav-bar li {
+        display: none;
+    }
+}
+/* Estilos para dispositivos móviles */
+@media screen and (max-width: 599px) {
+    .timeline ol {
+        padding: 0;
+    }
+
+    .timeline ol li {
+        display: inline-block;
+        height: 3px;
+        width: 120px;
+    }
+
+    .timeline ol li div {
+        width: 200px;
+    }
+}
+
+
+
+
+/******* Fonts Import Start **********/
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap");
+/********* Fonts Face CSS End **********/
+
+/******* Common Element CSS Start ******/
+* {
+margin: 0px;
+padding: 0px;
+}
+body {
+font-family: "Roboto", sans-serif;
+font-size: 16px;
+}
+.clear {
+clear: both;
+}
+img {
+max-width: 100%;
+border: 0px;
+}
+ul,
+ol {
+list-style: none;
+}
+a {
+text-decoration: none;
+color: inherit;
+outline: none;
+transition: all 0.4s ease-in-out;
+-webkit-transition: all 0.4s ease-in-out;
+}
+a:focus,
+a:active,
+a:visited,
+a:hover {
+text-decoration: none;
+outline: none;
+}
+a:hover {
+color: #e73700;
+}
+h2 {
+margin-bottom: 48px;
+padding-bottom: 16px;
+font-size: 20px;
+line-height: 28px;
+font-weight: 700;
+position: relative;
+text-transform: capitalize;
+}
+h3 {
+margin: 0 0 10px;
+font-size: 28px;
+line-height: 36px;
+}
+button {
+outline: none !important;
+}
+/******* Common Element CSS End *********/
+
+/* -------- title style ------- */
+.line-title {
+position: relative;
+width: 400px;
+}
+.line-title::before,
+.line-title::after {
+content: "";
+position: absolute;
+bottom: 0;
+left: 0;
+height: 4px;
+border-radius: 2px;
+}
+.line-title::before {
+width: 100%;
+background: #f2f2f2;
+}
+.line-title::after {
+width: 32px;
+background: #e73700;
+}
+
+/******* Middle section CSS Start ******/
+/* -------- Landing page ------- */
+.game-section {
+padding: 60px 50px;
+}
+.game-section .owl-stage {
+margin: 15px 0;
+display: flex;
+display: -webkit-flex;
+}
+.game-section .item {
+margin: 0 15px 60px;
+width: 320px;
+height: 400px;
+display: flex;
+display: -webkit-flex;
+align-items: flex-end;
+-webkit-align-items: flex-end;
+background: #343434 no-repeat center center / cover;
+border-radius: 16px;
+overflow: hidden;
+position: relative;
+transition: all 0.4s ease-in-out;
+-webkit-transition: all 0.4s ease-in-out;
+cursor: pointer;
+}
+.game-section .item.active {
+width: 500px;
+box-shadow: 12px 40px 40px rgba(0, 0, 0, 0.25);
+-webkit-box-shadow: 12px 40px 40px rgba(0, 0, 0, 0.25);
+}
+.game-section .item:after {
+content: "";
+display: block;
+position: absolute;
+height: 100%;
+width: 100%;
+left: 0;
+top: 0;
+background-image: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 1));
+}
+.game-section .item-desc {
+padding: 0 24px 12px;
+color: #fff;
+position: relative;
+z-index: 1;
+overflow: hidden;
+transform: translateY(calc(100% - 54px));
+-webkit-transform: translateY(calc(100% - 54px));
+transition: all 0.4s ease-in-out;
+-webkit-transition: all 0.4s ease-in-out;
+}
+.game-section .item.active .item-desc {
+transform: none;
+-webkit-transform: none;
+}
+.game-section .item-desc p {
+opacity: 0;
+-webkit-transform: translateY(32px);
+transform: translateY(32px);
+transition: all 0.4s ease-in-out 0.2s;
+-webkit-transition: all 0.4s ease-in-out 0.2s;
+}
+.game-section .item.active .item-desc p {
+opacity: 1;
+-webkit-transform: translateY(0);
+transform: translateY(0);
+}
+.game-section .owl-theme.custom-carousel .owl-dots {
+margin-top: -20px;
+position: relative;
+z-index: 5;
+}
+/******** Middle section CSS End *******/
+
+/***** responsive css Start ******/
+
+@media (min-width: 992px) and (max-width: 1199px) {
+h2 {
+    margin-bottom: 32px;
+}
+h3 {
+    margin: 0 0 8px;
+    font-size: 24px;
+    line-height: 32px;
+}
+
+/* -------- Landing page ------- */
+.game-section {
+    padding: 50px 30px;
+}
+.game-section .item {
+    margin: 0 12px 60px;
+    width: 260px;
+    height: 360px;
+}
+.game-section .item.active {
+    width: 400px;
+}
+.game-section .item-desc {
+    transform: translateY(calc(100% - 46px));
+    -webkit-transform: translateY(calc(100% - 46px));
+}
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+h2 {
+    margin-bottom: 32px;
+}
+h3 {
+    margin: 0 0 8px;
+    font-size: 24px;
+    line-height: 32px;
+}
+.line-title {
+    width: 330px;
+}
+
+/* -------- Landing page ------- */
+.game-section {
+    padding: 50px 30px 40px;
+}
+.game-section .item {
+    margin: 0 12px 60px;
+    width: 240px;
+    height: 330px;
+}
+.game-section .item.active {
+    width: 360px;
+}
+.game-section .item-desc {
+    transform: translateY(calc(100% - 42px));
+    -webkit-transform: translateY(calc(100% - 42px));
+}
+}
+
+@media (max-width: 767px) {
+body {
+    font-size: 14px;
+}
+h2 {
+    margin-bottom: 20px;
+}
+h3 {
+    margin: 0 0 8px;
+    font-size: 19px;
+    line-height: 24px;
+}
+.line-title {
+    width: 250px;
+}
+
+/* -------- Landing page ------- */
+.game-section {
+    padding: 30px 15px 20px;
+}
+.game-section .item {
+    margin: 0 10px 40px;
+    width: 200px;
+    height: 280px;
+}
+.game-section .item.active {
+    width: 270px;
+    box-shadow: 6px 10px 10px rgba(0, 0, 0, 0.25);
+    -webkit-box-shadow: 6px 10px 10px rgba(0, 0, 0, 0.25);
+}
+.game-section .item-desc {
+    padding: 0 14px 5px;
+    transform: translateY(calc(100% - 42px));
+    -webkit-transform: translateY(calc(100% - 42px));
+}
+}
