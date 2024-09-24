@@ -933,29 +933,34 @@
     // Mobile menu functionality
     const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
     const navBar = document.querySelector('.nav-bar');
+    const navLinks = document.querySelectorAll('.nav-bar li');
 
+    // Toggles the "active" class on the navbar when the mobile menu button is clicked
     mobileMenuBtn.addEventListener('click', () => {
-        navBar.classList.toggle('active');
+    navBar.classList.toggle('active');
+    mobileMenuBtn.classList.toggle('active');
     });
 
-    // Close mobile menu when a link is clicked
-    document.querySelectorAll('.nav-bar a').forEach(link => {
-        link.addEventListener('click', () => {
-            navBar.classList.remove('active');
-        });
+    // Closes the mobile menu when a navbar link is clicked
+    navLinks.forEach((link) => {
+    link.addEventListener('click', () => {
+        navBar.classList.remove('active');
+        mobileMenuBtn.classList.remove('active');
+    });
     });
 
-    // Hide navbar on scroll down, show on scroll up
+    // Closes the mobile menu when the user scrolls
     let lastScrollTop = 0;
-    window.addEventListener('scroll', () => {
-        let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-        if (scrollTop > lastScrollTop) {
-            navBar.style.top = '-60px'; // Adjust based on your navbar height
-        } else {
-            navBar.style.top = '0';
-        }
-        lastScrollTop = scrollTop;
+    document.addEventListener('scroll', () => {
+    let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+    if (scrollTop > lastScrollTop && navBar.classList.contains('active')) {
+        navBar.classList.remove('active');
+        mobileMenuBtn.classList.remove('active');
+    }
+    lastScrollTop = scrollTop;
     });
+
+    
     </script>
 </body>
 </html>
