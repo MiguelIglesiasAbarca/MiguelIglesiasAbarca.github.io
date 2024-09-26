@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <meta name="google-site-verification" content="I90YCct1dhyWdN1_aObJ6jwbjkJLO7fUWoSYW010pPE" />
     <meta name="description" content="Welcome to Miguel Iglesias Abarca's portfolio, where you can see more about his personal work & experience.">
     <title>Miguel Iglesias Abarca - Portfolio & Personal Work</title>
@@ -322,23 +322,38 @@
             if (event.target == modal) {
                 modal.style.display = "none";
             }
-        }   
+        }  
+        
+        
     </script>
 
     <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
     <script>
     var swiper = new Swiper('.swiper-container', {
-        effect: 'fade',
-        loop: true,
-        pagination: {
-            el: '.swiper-pagination',
-            clickable: true,
+    effect: 'fade',
+    loop: true,
+    pagination: {
+        el: '.swiper-pagination',
+        clickable: true,
+    },
+    navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+    },
+    touchReleaseOnEdges: true,
+    touchRatio: 1,
+    touchAngle: 45,
+    simulateTouch: true,
+    threshold: 5,
+    on: {
+        touchStart: function () {
+            document.body.style.overflow = 'hidden';
         },
-        navigation: {
-            nextEl: '.swiper-button-next',
-            prevEl: '.swiper-button-prev',
-        },
-    });
+        touchEnd: function () {
+            document.body.style.overflow = '';
+        }
+    }
+});
 
     // Mobile menu functionality
     const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
@@ -361,13 +376,39 @@
 
     // Closes the mobile menu when the user scrolls
     let lastScrollTop = 0;
-    document.addEventListener('scroll', () => {
-    let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-    if (scrollTop > lastScrollTop && navBar.classList.contains('active')) {
-        navBar.classList.remove('active');
-        mobileMenuBtn.classList.remove('active');
+    const navbar = document.querySelector('.nav-bar');
+    const threshold = 5;
+
+    window.addEventListener('scroll', () => {
+        let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+        
+        if (Math.abs(scrollTop - lastScrollTop) > threshold) {
+            if (scrollTop > lastScrollTop && scrollTop > navbar.offsetHeight) {
+                navbar.classList.add('hidden');
+            } else {
+                navbar.classList.remove('hidden');
+            }
+            lastScrollTop = scrollTop;
+        }
+    });
+
+    // Previene el scroll cuando el menú móvil está abierto
+    function toggleBodyScroll(disable) {
+        document.body.style.overflow = disable ? 'hidden' : '';
     }
-    lastScrollTop = scrollTop;
+
+    mobileMenuBtn.addEventListener('click', () => {
+        navBar.classList.toggle('active');
+        mobileMenuBtn.classList.toggle('active');
+        toggleBodyScroll(navBar.classList.contains('active'));
+    });
+
+    navLinks.forEach((link) => {
+        link.addEventListener('click', () => {
+            navBar.classList.remove('active');
+            mobileMenuBtn.classList.remove('active');
+            toggleBodyScroll(false);
+        });
     });
 
     

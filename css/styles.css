@@ -198,12 +198,15 @@ h2 {
     left: 0;
     right: 0;
     background-color: rgba(9, 13, 0, 0.9);
-    padding: 15px 0; /* Aumentado ligeramente */
+    padding: 15px 0;
     z-index: 1000;
-    transition: transform 0.4s ease; /* Transición más lenta */
+    transition: transform 0.4s ease;
+    width: 100%;
+    box-sizing: border-box;
 }
+
 .nav-bar.hidden {
-    transform: translateY(-110%);
+    transform: translateY(-100%);
 }
 
 /* Estilos actualizados para el botón del menú móvil */
@@ -285,6 +288,15 @@ h2 {
     align-items: center;
     gap: 10px;
     display: none; /* Hide menu by default on mobile */
+    justify-content: center;
+    height: 100%;
+}
+.nav-bar.active {
+    height: 100vh;
+    overflow-y: auto;
+}
+.nav-bar li {
+    margin: 20px 0;
 }
 .work-grid {
     grid-template-columns: 1fr;
@@ -478,6 +490,8 @@ body {
     border-radius: 10px;
     margin: 50px auto;
     padding-bottom: 40px;
+    touch-action: pan-y;
+    -webkit-overflow-scrolling: touch;
 }
 
 .slider-image-wrapper {
@@ -497,6 +511,7 @@ body {
     opacity: 0;
     background: #090d00;
     cursor: grab;
+    touch-action: pan-y;
 }
 
 .slider-item-content {
