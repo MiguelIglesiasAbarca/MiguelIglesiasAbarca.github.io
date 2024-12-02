@@ -55,10 +55,21 @@
         </div>
     </section>   
 
+    <div class="portfolio-switch">
+        <div class="switch-container">
+            <span class="switch-label active" data-mode="3dart">3D Art</span>
+            <label class="switch">
+                <input type="checkbox" id="portfolioToggle">
+                <span class="slider round"></span>
+            </label>
+            <span class="switch-label" data-mode="leveldesign">Level Design</span>
+        </div>
+    </div>
+
     <div class="content">
         <section id="works" class="portfolio">
             <h2>MY WORK & EXPERIENCE</h2>
-            <div class="work-grid">
+            <div class="work-grid" id="3dArt">
                 <!-- Elemento de trabajo 1 -->
                 <div class="work-item">
                     <img src="img/bluedemon3.webp" alt="Blue Demon - 3D environment for RPG game">
@@ -123,6 +134,32 @@
                         <p>3D environment created as part of a CGMA course, showcasing advanced lighting and composition techniques.</p>
                     </div>
                 </div> -->
+            </div>
+            <div class="work-grid" id="LevelDesign">
+                <!-- Elemento de trabajo 1 -->
+                <div class="work-item">
+                    <img src="img/bluedemon3.webp" alt="Blue Demon - 3D environment for RPG game">
+                    <div class="work-item-content">
+                        <h3>Blue dddd</h3>
+                        <p>Inspired by a concept from Lost Bear Studios, I crafted this Blue Demon model from start to finish. The process included sculpting, retopology, UV mapping, baking, and texturing.</p>
+                    </div>
+                </div>
+                <!-- Elemento de trabajo 2 -->
+                <div class="work-item">
+                    <img src="img/axe1.webp" alt="Nordic Axe - 3D model and texturing">
+                    <div class="work-item-content">
+                        <h3>Nordic ddd</h3>
+                        <p>This stylized Nordic Axe, based on a concept art, showcases my skills in the entire workflow: sculpting, retopology, UV mapping, baking, and texturing. I experimented with ZBrush tools to achieve detailed craftsmanship and realistic fabric textures.</p>
+                    </div>
+                </div>
+                <!-- Elemento de trabajo 3 -->
+                <div class="work-item">
+                    <img src="img/scrap1.webp" alt="Scrap Gun - 3D model and texturing">
+                    <div class="work-item-content">
+                        <h3>Scrap dddd</h3>
+                        <p>This Scrap Gun, used by RoadHog in Overwatch 2, was created using various images and angles due to the challenge of finding high-quality reference pictures. I worked on it from scratch, including blocking, modeling, sculpting, texturing, UV mapping, and baking.</p>
+                    </div>
+                </div>
             </div>
         </section>
     </section>
@@ -416,23 +453,23 @@
 });
 
     // Mobile menu functionality
-    const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+    //const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
     const navBar = document.querySelector('.nav-bar');
     const navLinks = document.querySelectorAll('.nav-bar li');
 
     // Toggles the "active" class on the navbar when the mobile menu button is clicked
-    mobileMenuBtn.addEventListener('click', () => {
-    navBar.classList.toggle('active');
-    mobileMenuBtn.classList.toggle('active');
-    });
+    // mobileMenuBtn.addEventListener('click', () => {
+    // navBar.classList.toggle('active');
+    // mobileMenuBtn.classList.toggle('active');
+    // });
 
     // Closes the mobile menu when a navbar link is clicked
-    navLinks.forEach((link) => {
-    link.addEventListener('click', () => {
-        navBar.classList.remove('active');
-        mobileMenuBtn.classList.remove('active');
-    });
-    });
+    // navLinks.forEach((link) => {
+    // link.addEventListener('click', () => {
+    //     navBar.classList.remove('active');
+    //     mobileMenuBtn.classList.remove('active');
+    // });
+    // });
 
     // Closes the mobile menu when the user scrolls
     let lastScrollTop = 0;
@@ -457,19 +494,47 @@
         document.body.style.overflow = disable ? 'hidden' : '';
     }
 
-    mobileMenuBtn.addEventListener('click', () => {
-        navBar.classList.toggle('active');
-        mobileMenuBtn.classList.toggle('active');
-        toggleBodyScroll(navBar.classList.contains('active'));
-    });
+    // mobileMenuBtn.addEventListener('click', () => {
+    //     navBar.classList.toggle('active');
+    //     mobileMenuBtn.classList.toggle('active');
+    //     toggleBodyScroll(navBar.classList.contains('active'));
+    // });
 
-    navLinks.forEach((link) => {
-        link.addEventListener('click', () => {
-            navBar.classList.remove('active');
-            mobileMenuBtn.classList.remove('active');
-            toggleBodyScroll(false);
-        });
+    // navLinks.forEach((link) => {
+    //     link.addEventListener('click', () => {
+    //         navBar.classList.remove('active');
+    //         mobileMenuBtn.classList.remove('active');
+    //         toggleBodyScroll(false);
+    //     });
+    // });
+
+    document.addEventListener('DOMContentLoaded', function() {
+    const portfolioToggle = document.getElementById('portfolioToggle');
+    const art3DContent = document.getElementById('3dArt');
+    const levelDesignContent = document.getElementById('LevelDesign');
+    const switchLabels = document.querySelectorAll('.switch-label');
+
+    // Hide Level Design content initially
+    levelDesignContent.style.display = 'none';
+
+    portfolioToggle.addEventListener('change', function() {
+        if (this.checked) {
+            // Show Level Design, hide 3D Art
+            art3DContent.style.display = 'none';
+            levelDesignContent.style.display = 'grid';
+            // Update active classes
+            switchLabels[0].classList.remove('active');
+            switchLabels[1].classList.add('active');
+        } else {
+            // Show 3D Art, hide Level Design
+            art3DContent.style.display = 'grid';
+            levelDesignContent.style.display = 'none';
+            // Update active classes
+            switchLabels[0].classList.add('active');
+            switchLabels[1].classList.remove('active');
+        }
     });
+});
 
     
     </script>
