@@ -1,3 +1,7 @@
+/* Añade estas reglas al principio del archivo CSS */
+* {
+    transition: color 0.5s ease, background-color 0.5s ease, border-color 0.5s ease;
+}
 
 /* Combined and optimized CSS styles */
 body {
@@ -49,7 +53,7 @@ body {
 .hero .subtitle {
     font-size: 1.5em;
     font-family: 'Neuton', serif;
-    color: #DE9150;
+    color: #155e0b;
     text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
     margin-top: 20px;
     letter-spacing: 0.1em;
