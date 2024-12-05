@@ -64,6 +64,73 @@ body {
     100% { background-position: 30% 50%; }
 }
 
+/* Añadir estilo del tema verde */
+.green-theme .hero .subtitle,
+.green-theme .scroll-arrow,
+.green-theme .category-switch,
+.green-theme .work-item h3,
+.green-theme .cv-button,
+.green-theme .contact a,
+.green-theme .nav-bar a:hover,
+.green-theme .social-icon:hover,
+.green-theme .modal-nav-btn,
+.green-theme .modal-title,
+.green-theme .modal-tools,
+.green-theme h2,
+.green-theme .about h2,
+.green-theme .scroll-arrow svg,
+.green-theme .about,
+.green-theme .hero span,
+.green-theme .hero p {
+    color: #4caf50; /* verde */
+}
+
+.green-theme .switch-slider {
+    background: #4caf50; /* verde */
+}
+
+.green-theme .cv-button {
+    background-color: #4caf50; /* verde */
+    color: #090d00; /* color del texto */
+}
+
+.green-theme .cv-button:hover,
+.green-theme .modal-nav-btn:hover,
+.green-theme .social-icon:hover {
+    background-color: #66bb6a; /* verde más claro */
+}
+
+.green-theme .contact a:hover {
+    color: #66bb6a; /* verde más claro */
+}
+
+.green-theme .scroll-arrow svg path {
+    stroke: #4caf50; /* verde */
+}
+
+.green-theme .about {
+    background-color: rgba(75, 175, 80, 0.1); /* fondo verde */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* shadow */
+}
+
+.green-theme .about h2 {
+    color: #4caf50; /* verde */
+}
+
+.green-theme .category-switch {
+    background: rgba(75, 175, 80, 0.1); /* fondo verde */
+    border: 1px solid rgba(75, 175, 80, 0.3); /* borde verde */
+}
+
+.green-theme .switch-btn.active {
+    color: #090d00;
+    font-weight: bold; /* Added bold font weight for the active button */
+}
+
+/* Añadir estilo del tema verde */
+.green-theme .hero .subtitle {
+    color: #4caf50; /* verde */
+}
 .scroll-arrow {
     position: absolute;
     bottom: 30px; /* Increased bottom positioning */
@@ -167,41 +234,40 @@ input:checked + .slider:before {
 }
 
 .about {
-  margin-top: 80px; /* Reduced the top margin slightly */
-  padding: 40px; /* Added some padding around the content */
-  background-color: rgba(145, 94, 52, 0.1); /* Added a subtle background color */
-  border-radius: 10px; /* Added some rounded corners */
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Added a light box shadow */
-}
-
-.about h2 {
-  text-align: center; /* Centered the heading */
-  margin-bottom: 20px; /* Added some spacing below the heading */
-  font-size: 2.5rem; /* Increased the font size of the heading */
-  color: #DE9150; /* Changed the heading color to match the theme */
-}
-
-.about p {
-  font-size: 1.1rem; /* Increased the font size of the paragraphs */
-  line-height: 1.6; /* Increased the line height for better readability */
-  color: #f0f0f0; /* Changed the paragraph color to a lighter shade */
-  margin-bottom: 20px; /* Added some spacing between paragraphs */
-}
-
-@media (max-width: 768px) {
-  .about {
-    padding: 30px; /* Reduced the padding on smaller screens */
+    margin-top: 80px; /* Reduced the top margin slightly */
+    padding: 40px; /* Added some padding around the content */
+    background-color: rgba(222, 145, 80, 0.1); /* Added a subtle background color */
+    border-radius: 10px; /* Added some rounded corners */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Added a light box shadow */
   }
-
+  
   .about h2 {
-    font-size: 2rem; /* Reduced the heading font size on smaller screens */
+    text-align: center; /* Centered the heading */
+    margin-bottom: 20px; /* Added some spacing below the heading */
+    font-size: 2.5rem; /* Increased the font size of the heading */
+    color: #DE9150; /* Changed the heading color to match the theme */
   }
-
+  
   .about p {
-    font-size: 1rem; /* Reduced the paragraph font size on smaller screens */
+    font-size: 1.1rem; /* Increased the font size of the paragraphs */
+    line-height: 1.6; /* Increased the line height for better readability */
+    color: #f0f0f0; /* Changed the paragraph color to a lighter shade */
+    margin-bottom: 20px; /* Added some spacing between paragraphs */
   }
-}
-
+  
+  @media (max-width: 768px) {
+    .about {
+      padding: 30px; /* Reduced the padding on smaller screens */
+    }
+  
+    .about h2 {
+      font-size: 2rem; /* Reduced the heading font size on smaller screens */
+    }
+  
+    .about p {
+      font-size: 1rem; /* Reduced the paragraph font size on smaller screens */
+    }
+  }
 h2 {
     font-family: 'Oswald', sans-serif;
     font-size: 2.5em;

@@ -381,20 +381,6 @@
     const navBar = document.querySelector('.nav-bar');
     const navLinks = document.querySelectorAll('.nav-bar li');
 
-    // Toggles the "active" class on the navbar when the mobile menu button is clicked
-    // mobileMenuBtn.addEventListener('click', () => {
-    // navBar.classList.toggle('active');
-    // mobileMenuBtn.classList.toggle('active');
-    // });
-
-    // Closes the mobile menu when a navbar link is clicked
-    // navLinks.forEach((link) => {
-    // link.addEventListener('click', () => {
-    //     navBar.classList.remove('active');
-    //     mobileMenuBtn.classList.remove('active');
-    // });
-    // });
-
     // Closes the mobile menu when the user scrolls
     let lastScrollTop = 0;
     const navbar = document.querySelector('.nav-bar');
@@ -418,53 +404,42 @@
         document.body.style.overflow = disable ? 'hidden' : '';
     }
 
-    // mobileMenuBtn.addEventListener('click', () => {
-    //     navBar.classList.toggle('active');
-    //     mobileMenuBtn.classList.toggle('active');
-    //     toggleBodyScroll(navBar.classList.contains('active'));
-    // });
-
-    // navLinks.forEach((link) => {
-    //     link.addEventListener('click', () => {
-    //         navBar.classList.remove('active');
-    //         mobileMenuBtn.classList.remove('active');
-    //         toggleBodyScroll(false);
-    //     });
-    // });
-
     document.addEventListener('DOMContentLoaded', function() {
-    const switchButtons = document.querySelectorAll('.switch-btn');
-    const art3DContent = document.getElementById('3dArt');
-    const levelDesignContent = document.getElementById('LevelDesign');
-    const switchSlider = document.querySelector('.switch-slider');
+            const switchButtons = document.querySelectorAll('.switch-btn');
+            const art3DContent = document.getElementById('3dArt');
+            const levelDesignContent = document.getElementById('LevelDesign');
+            const switchSlider = document.querySelector('.switch-slider');
+            const body = document.body;
 
-    // Hide Level Design content initially
-    levelDesignContent.style.display = 'none';
+            // Hide Level Design content initially
+            levelDesignContent.style.display = 'none';
 
-    switchButtons.forEach(button => {
-        button.addEventListener('click', function() {
-            // Remove active class from all buttons
-            switchButtons.forEach(btn => btn.classList.remove('active'));
-            // Add active class to clicked button
-            this.classList.add('active');
+            switchButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    // Remove active class from all buttons
+                    switchButtons.forEach(btn => btn.classList.remove('active'));
+                    // Add active class to clicked button
+                    this.classList.add('active');
 
-            // Move the switch slider
-            if (this.dataset.category === 'level-design') {
-                switchSlider.style.transform = 'translateX(calc(100% + 5px))';
-                // Show Level Design, hide 3D Art
-                art3DContent.style.display = 'none';
-                levelDesignContent.style.display = 'grid';
-            } else {
-                switchSlider.style.transform = 'translateX(0)';
-                // Show 3D Art, hide Level Design
-                art3DContent.style.display = 'grid';
-                levelDesignContent.style.display = 'none';
-            }
-        });
-    });
-});
-
-    
+                    // Move the switch slider and change theme
+                    if (this.dataset.category === 'level-design') {
+                        switchSlider.style.transform = 'translateX(calc(100% + 5px))';
+                        // Show Level Design, hide 3D Art
+                        art3DContent.style.display = 'none';
+                        levelDesignContent.style.display = 'grid';
+                        // Apply green theme
+                        body.classList.add('green-theme');
+                    } else {
+                        switchSlider.style.transform = 'translateX(0)';
+                        // Show 3D Art, hide Level Design
+                        art3DContent.style.display = 'grid';
+                        levelDesignContent.style.display = 'none';
+                        // Remove green theme
+                        body.classList.remove('green-theme');
+                    }
+                });
+            });
+        });    
     </script>
 </body>
 </html>
