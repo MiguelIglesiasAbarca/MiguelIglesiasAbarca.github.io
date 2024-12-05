@@ -385,31 +385,7 @@
 
     <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
     <script>
-    var swiper = new Swiper('.swiper-container', {
-    effect: 'fade',
-    loop: true,
-    pagination: {
-        el: '.swiper-pagination',
-        clickable: true,
-    },
-    navigation: {
-        nextEl: '.swiper-button-next',
-        prevEl: '.swiper-button-prev',
-    },
-    touchReleaseOnEdges: true,
-    touchRatio: 1,
-    touchAngle: 45,
-    simulateTouch: true,
-    threshold: 5,
-    on: {
-        touchStart: function () {
-            document.body.style.overflow = '';
-        },
-        touchEnd: function () {
-            document.body.style.overflow = '';
-        }
-    }
-});
+   
 
     // Mobile menu functionality
     //const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
@@ -468,30 +444,34 @@
     // });
 
     document.addEventListener('DOMContentLoaded', function() {
-    const portfolioToggle = document.getElementById('portfolioToggle');
+    const switchButtons = document.querySelectorAll('.switch-btn');
     const art3DContent = document.getElementById('3dArt');
     const levelDesignContent = document.getElementById('LevelDesign');
-    const switchLabels = document.querySelectorAll('.switch-label');
+    const switchSlider = document.querySelector('.switch-slider');
 
     // Hide Level Design content initially
     levelDesignContent.style.display = 'none';
 
-    portfolioToggle.addEventListener('change', function() {
-        if (this.checked) {
-            // Show Level Design, hide 3D Art
-            art3DContent.style.display = 'none';
-            levelDesignContent.style.display = 'grid';
-            // Update active classes
-            switchLabels[0].classList.remove('active');
-            switchLabels[1].classList.add('active');
-        } else {
-            // Show 3D Art, hide Level Design
-            art3DContent.style.display = 'grid';
-            levelDesignContent.style.display = 'none';
-            // Update active classes
-            switchLabels[0].classList.add('active');
-            switchLabels[1].classList.remove('active');
-        }
+    switchButtons.forEach(button => {
+        button.addEventListener('click', function() {
+            // Remove active class from all buttons
+            switchButtons.forEach(btn => btn.classList.remove('active'));
+            // Add active class to clicked button
+            this.classList.add('active');
+
+            // Move the switch slider
+            if (this.dataset.category === 'level-design') {
+                switchSlider.style.transform = 'translateX(calc(100% + 5px))';
+                // Show Level Design, hide 3D Art
+                art3DContent.style.display = 'none';
+                levelDesignContent.style.display = 'grid';
+            } else {
+                switchSlider.style.transform = 'translateX(0)';
+                // Show 3D Art, hide Level Design
+                art3DContent.style.display = 'grid';
+                levelDesignContent.style.display = 'none';
+            }
+        });
     });
 });
 
