@@ -127,6 +127,64 @@ body {
     height: 0;
 }
 
+.category-switch {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: rgba(222, 145, 80, 0.1);
+    border-radius: 30px;
+    padding: 5px;
+    width: 300px;
+    margin: 40px auto;
+    border: 1px solid rgba(222, 145, 80, 0.3);
+  }
+  
+  .switch-btn {
+    position: relative;
+    z-index: 1;
+    padding: 10px 20px;
+    border: none;
+    background: none;
+    color: rgba(255,255,255,.75);
+    cursor: pointer;
+    font-family: 'Neuton', serif;
+    font-size: 1.1em;
+    transition: color 0.3s ease;
+    width: 50%;
+  }
+  
+  .switch-btn.active {
+    color: #090d00;
+  }
+  
+  .switch-slider {
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    width: calc(50% - 5px);
+    height: calc(100% - 10px);
+    background: #DE9150;
+    border-radius: 25px;
+    transition: transform 0.3s ease;
+  }
+  
+  .switch-btn:last-child.active ~ .switch-slider {
+    transform: translateX(calc(100% + 5px));
+  }
+  
+  @media (max-width: 768px) {
+    .category-switch {
+      width: 250px;
+      margin: 30px auto;
+    }
+    
+    .switch-btn {
+      font-size: 1em;
+      padding: 8px 15px;
+    }
+  }
+
 /* Estilo del interruptor deslizante */
 .slider {
     position: absolute;
