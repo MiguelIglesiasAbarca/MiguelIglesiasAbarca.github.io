@@ -66,12 +66,18 @@ body {
 
 .scroll-arrow {
     position: absolute;
-    bottom: 20px;
+    bottom: 30px; /* Increased bottom positioning */
     left: 50%;
     transform: translateX(-50%);
     animation: bounce 2s infinite;
     color: #DE9150;
-}
+  }
+  
+  @media (max-width: 768px) {
+    .scroll-arrow {
+      bottom: 100px; /* Increased bottom positioning for mobile */
+    }
+  }
 
 @keyframes bounce {
     0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
@@ -79,135 +85,64 @@ body {
     60% { transform: translateY(-15px); }
 }
 
-/* Estilo general del contenedor */
-.portfolio-switch {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 20px 0;
-}
-
-.switch-container {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
-
-/* Estilo de las etiquetas */
-.switch-label {
-    font-size: 24px;
-    font-weight: bold;
-    cursor: pointer;
-    transition: color 0.3s ease-in-out;
-}
-
-.switch-label[data-mode="3dart"] {
-    color: orange;
-}
-
-.switch-label[data-mode="leveldesign"] {
-    color: green;
-}
-
-.switch-label.active {
-    text-decoration: underline;
-}
-
-/* Estilo del slider */
-.switch {
-    position: relative;
-    display: inline-block;
-    width: 80px;
-    height: 40px;
-}
-
-.switch input {
-    opacity: 0;
-    width: 0;
-    height: 0;
-}
 
 .category-switch {
-    position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background: rgba(222, 145, 80, 0.1);
-    border-radius: 30px;
-    padding: 5px;
-    width: 300px;
-    margin: 40px auto;
-    border: 1px solid rgba(222, 145, 80, 0.3);
-  }
-  
-  .switch-btn {
-    position: relative;
-    z-index: 1;
-    padding: 10px 20px;
-    border: none;
-    background: none;
-    color: rgba(255,255,255,.75);
-    cursor: pointer;
-    font-family: 'Neuton', serif;
-    font-size: 1.1em;
-    transition: color 0.3s ease;
-    width: 50%;
-  }
-  
-  .switch-btn.active {
-    color: #090d00;
-  }
-  
-  .switch-slider {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: rgba(222, 145, 80, 0.1);
+  border-radius: 40px; /* Increased border-radius for a more rounded look */
+  padding: 10px; /* Increased padding for a larger button */
+  width: 400px; /* Increased width for better visibility */
+  margin: 60px auto; /* Increased top and bottom margin for more space */
+  border: 1px solid rgba(222, 145, 80, 0.3);
+}
+
+.switch-btn {
+  position: relative;
+  z-index: 1;
+  padding: 15px 25px; /* Increased padding for larger buttons */
+  border: none;
+  background: none;
+  color: rgba(255,255,255,.75);
+  cursor: pointer;
+  font-family: 'Neuton', serif;
+  font-size: 1.2em; /* Increased font size for better readability */
+  transition: color 0.3s ease;
+  width: 50%;
+}
+
+.switch-btn.active {
+  color: #090d00;
+  font-weight: bold; /* Added bold font weight for the active button */
+}
+
+.switch-slider {
     position: absolute;
-    top: 5px;
-    left: 5px;
-    width: calc(50% - 5px);
-    height: calc(100% - 10px);
+    top: 10px;
+    left: 10px;
+    width: calc(50% - 10px); 
+    height: calc(100% - 20px);
     background: #DE9150;
-    border-radius: 25px;
+    border-radius: 35px;
     transition: transform 0.3s ease;
   }
   
   .switch-btn:last-child.active ~ .switch-slider {
-    transform: translateX(calc(100% + 5px));
-  }
-  
-  @media (max-width: 768px) {
-    .category-switch {
-      width: 250px;
-      margin: 30px auto;
-    }
-    
-    .switch-btn {
-      font-size: 1em;
-      padding: 8px 15px;
-    }
+    transform: translateX(calc(100% + 10px));
   }
 
-/* Estilo del interruptor deslizante */
-.slider {
-    position: absolute;
-    cursor: pointer;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: #ccc;
-    border-radius: 20px;
-    transition: background-color 0.4s;
-}
+@media (max-width: 768px) {
+  .category-switch {
+    width: 300px; /* Increased width for better visibility on smaller screens */
+    margin: 40px auto; /* Increased top and bottom margin for more space */
+  }
 
-.slider:before {
-    position: absolute;
-    content: "";
-    height: 32px;
-    width: 32px;
-    border-radius: 50%;
-    background-color: white;
-    bottom: 4px;
-    left: 4px;
-    transition: transform 0.4s ease-in-out;
+  .switch-btn {
+    font-size: 1.1em; /* Slightly increased font size for better readability */
+    padding: 12px 20px; /* Increased padding for larger buttons */
+  }
 }
 
 /* Estado activado */
@@ -232,8 +167,39 @@ input:checked + .slider:before {
 }
 
 .about {
-    margin-top: 120px; /* Ajusta este valor según sea necesario */
-    
+  margin-top: 80px; /* Reduced the top margin slightly */
+  padding: 40px; /* Added some padding around the content */
+  background-color: rgba(145, 94, 52, 0.1); /* Added a subtle background color */
+  border-radius: 10px; /* Added some rounded corners */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Added a light box shadow */
+}
+
+.about h2 {
+  text-align: center; /* Centered the heading */
+  margin-bottom: 20px; /* Added some spacing below the heading */
+  font-size: 2.5rem; /* Increased the font size of the heading */
+  color: #DE9150; /* Changed the heading color to match the theme */
+}
+
+.about p {
+  font-size: 1.1rem; /* Increased the font size of the paragraphs */
+  line-height: 1.6; /* Increased the line height for better readability */
+  color: #f0f0f0; /* Changed the paragraph color to a lighter shade */
+  margin-bottom: 20px; /* Added some spacing between paragraphs */
+}
+
+@media (max-width: 768px) {
+  .about {
+    padding: 30px; /* Reduced the padding on smaller screens */
+  }
+
+  .about h2 {
+    font-size: 2rem; /* Reduced the heading font size on smaller screens */
+  }
+
+  .about p {
+    font-size: 1rem; /* Reduced the paragraph font size on smaller screens */
+  }
 }
 
 h2 {
