@@ -282,7 +282,7 @@ h2 {
 .work-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 30px;
+    gap: 20px;
 }
 
 .work-item {
@@ -305,6 +305,7 @@ h2 {
 }
 
 .work-item-content {
+    
     padding: 20px;
 }
 
