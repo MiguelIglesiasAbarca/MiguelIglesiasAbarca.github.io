@@ -252,7 +252,7 @@ input:checked + .slider:before {
   }
   
   .about p {
-    font-size: 1.1rem; /* Increased the font size of the paragraphs */
+    font-size: 1.3rem; /* Increased the font size of the paragraphs */
     line-height: 1.6; /* Increased the line height for better readability */
     color: #f0f0f0; /* Changed the paragraph color to a lighter shade */
     margin-bottom: 20px; /* Added some spacing between paragraphs */
