@@ -230,47 +230,74 @@ input:checked + .slider:before {
 }
 
 .portfolio, .about, .skills-cv-container, .contact {
-    padding: 50px 5%;
-    width: 80%;
-    max-width: 1200px;
+    padding: 50px 2%; /* Reducido de 5% a 2% */
+    width: 96%; /* Aumentado de 80% a 96% */
+    max-width: 1600px; /* Aumentado de 1200px a 1600px */
     margin: 0 auto;
 }
 
 .about {
-    margin-top: 80px; /* Reduced the top margin slightly */
-    padding: 40px; /* Added some padding around the content */
-    background-color: rgba(222, 89, 80, 0.1); /* Added a subtle background color */
-    border-radius: 10px; /* Added some rounded corners */
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Added a light box shadow */
+    margin: 80px auto;
+    padding: 40px;
+    background-color: rgba(222, 89, 80, 0.1);
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    width: 90%;
+    max-width: 1200px;
+    box-sizing: border-box;
   }
   
   .about h2 {
-    text-align: center; /* Centered the heading */
-    margin-bottom: 20px; /* Added some spacing below the heading */
-    font-size: 2.5rem; /* Increased the font size of the heading */
-    color: #de6150; /* Changed the heading color to match the theme */
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 2.5rem;
+    color: #de6150;
   }
   
   .about p {
-    font-size: 1.3rem; /* Increased the font size of the paragraphs */
-    line-height: 1.6; /* Increased the line height for better readability */
-    color: #f0f0f0; /* Changed the paragraph color to a lighter shade */
-    margin-bottom: 20px; /* Added some spacing between paragraphs */
+    font-size: 1.3rem;
+    line-height: 1.6;
+    color: #f0f0f0;
+    margin-bottom: 20px;
+    padding: 0 20px;
   }
-  
-  @media (max-width: 768px) {
-    .about {
-      padding: 30px; /* Reduced the padding on smaller screens */
+    /* Tablets */
+    @media (max-width: 1024px) {
+        .about {
+            width: 92%;
+            padding: 35px;
+            margin: 60px auto;
+        }
+
+        .about h2 {
+            font-size: 2.2rem;
+        }
+
+        .about p {
+            font-size: 1.2rem;
+            padding: 0 15px;
+        }
     }
-  
-    .about h2 {
-      font-size: 2rem; /* Reduced the heading font size on smaller screens */
+
+    /* Mobile devices */
+    @media (max-width: 768px) {
+        .about {
+            width: 94%;
+            padding: 25px;
+            margin: 40px auto;
+        }
+
+        .about h2 {
+            font-size: 2rem;
+            margin-bottom: 25px;
+        }
+
+        .about p {
+            font-size: 1.1rem;
+            padding: 0 10px;
+            margin-bottom: 15px;
+        }
     }
-  
-    .about p {
-      font-size: 1rem; /* Reduced the paragraph font size on smaller screens */
-    }
-  }
 h2 {
     font-family: 'Oswald', sans-serif;
     font-size: 2.5em;
@@ -281,8 +308,11 @@ h2 {
 
 .work-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 20px;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+    width: 100%;
+    padding: 0 20px;
+    box-sizing: border-box;
 }
 
 .work-item {
@@ -294,6 +324,8 @@ h2 {
     overflow: hidden;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     box-shadow: 0 0 40px 0px rgba(255, 255, 255, 0.096), 0 5px 15px rgba(255, 255, 255, 0.034);
+    width: 100%; /* Changed from min-width to width */
+    
 }
 
 .work-item:hover {
@@ -303,7 +335,7 @@ transform: translateY(-10px);
 
 .work-item img {
     width: 100%;
-    height: 200px;
+    height: 250px;
     object-fit: cover;
 }
 
@@ -724,10 +756,7 @@ body {
     text-align: center; /* Center the text */
 }
 
-.soft-skills-list li:hover {
-    transform: translateX(10px);
-    background-color: rgba(222, 145, 80, 0.2);
-}
+
 
 /* New software icons styling with descriptions */
 .software-icons {
@@ -757,14 +786,48 @@ body {
     margin-top: 5px;
 }
 
-/* Responsive adjustments */
+
+/* Responsive breakpoints */
+@media (max-width: 1200px) {
+    .work-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+    }
+}
+
 @media (max-width: 768px) {
     .work-grid {
-        grid-template-columns: 1fr;
-        padding: 0 10px;
+        grid-template-columns: repeat(1, 1fr);
+        gap: 15px;
+        padding: 0 15px;
     }
 
-    .software-icons {
-        grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
+    .work-item img {
+        height: 200px; /* Reduced height for mobile */
+    }
+    
+    .work-item-content {
+        padding: 15px;
+    }
+    
+    .work-item h3 {
+        font-size: 1.2em;
+        margin-bottom: 10px;
+    }
+    
+    .work-item p {
+        font-size: 0.9em;
+        line-height: 1.4;
+    }
+}
+
+/* Small mobile devices */
+@media (max-width: 480px) {
+    .work-grid {
+        padding: 0 10px;
+    }
+    
+    .work-item img {
+        height: 180px;
     }
 }
