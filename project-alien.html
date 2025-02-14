@@ -20,21 +20,30 @@
             left: 0;
             right: 0;
             background-color: rgba(9, 13, 0, 0.9);
-            padding: 15px 0;
+            padding: 20px 0;
             z-index: 1000;
+            text-align: left;
+            padding-left: 40px;
         }
 
         .nav-bar a {
             color: rgba(255,255,255,.75);
             text-decoration: none;
             font-family: 'Neuton', sans-serif;
-            font-size: 1.2em;
-            transition: color 0.3s ease;
+            font-size: 1.4em;
+            transition: all 0.3s ease;
             margin-left: 20px;
+            background-color: rgba(223, 191, 49, 0.1);
+            padding: 12px 25px;
+            border-radius: 8px;
+            border: 1px solid rgba(223, 191, 49, 0.3);
         }
 
         .nav-bar a:hover {
             color: #dfbf31;
+            background-color: rgba(223, 191, 49, 0.2);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(223, 191, 49, 0.2);
         }
 
         .project-container {
@@ -107,11 +116,35 @@
             color: #dfbf31;
             margin-bottom: 15px;
         }
+               
+        .project-media {
+            display: flex;
+            flex-direction: column;
+            gap: 30px; /* Aumentado de 20px */
+        }
+
+        .project-media iframe {
+            width: 100%;
+            aspect-ratio: 16 / 9; /* Mantiene la relación de aspecto del video */
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(223, 191, 49, 0.2);
+        }
+
+
+        .project-media img {
+            margin-bottom: 10px;
+        }
 
         .project-image {
             width: 100%;
             border-radius: 10px;
             box-shadow: 0 0 20px rgba(223, 191, 49, 0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .project-image:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(223, 191, 49, 0.3);
         }
 
         .additional-content {
@@ -128,14 +161,39 @@
         .additional-images {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 20px;
-            margin-top: 30px;
+            gap: 30px; /* Aumentado de 20px */
+            margin-top: 40px; /* Aumentado de 30px */
         }
 
         .additional-images img {
             width: 100%;
             border-radius: 10px;
             box-shadow: 0 0 20px rgba(223, 191, 49, 0.2);
+        }
+
+        .project-details {
+            margin-top: 30px;
+            background: rgba(223, 191, 49, 0.1);
+            padding: 20px;
+            border-radius: 10px;
+        }
+
+        .itch-button {
+            display: block;
+            margin-top: 20px;
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .itch-button:hover {
+            transform: translateY(-5px);
+        }
+
+        .itch-button img {
+            max-width: 200px;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(223, 191, 49, 0.2);
         }
 
         @media (max-width: 768px) {
@@ -151,6 +209,22 @@
                 grid-template-columns: 1fr;
             }
         }
+
+        /* Ajustes responsive */
+        @media (max-width: 768px) {
+            .nav-bar {
+                padding-left: 20px;
+            }
+            
+            .nav-bar a {
+                font-size: 1.2em;
+                padding: 10px 20px;
+            }
+            
+            .additional-images {
+                gap: 20px;
+            }
+        }
     </style>
 </head>
 <body>
@@ -159,45 +233,67 @@
     </nav>
 
     <div class="project-container">
-        <h1 class="project-title">[Project Title]</h1>
-        
-        <!-- Video Section -->
-        <div class="video-container">
-            <iframe src="[Video URL]" title="Project Video" allowfullscreen></iframe>
-        </div>
+        <h1 class="project-title">Alien Escape</h1>
+      
 
-        <!-- Main Content -->
         <div class="project-content">
             <div class="project-info">
                 <h2>About the Project</h2>
-                <p>[Project Description]</p>
-                
+                <p><strong>Alien</strong> was developed as part of a 3D Environments course, where the main objective was to create modular 3D assets, visual effects, and other technical elements to build a complete scene for a video game or film of our choice.</p>
+
+                <p>My team and I decided to reinterpret a setting inspired by the movie <em>Alien</em>, creating a game where the player is trapped in a space station after someone—or something—has already eliminated the rest of the crew.</p>
+
+                <p>While the project was a significant achievement in 3D modeling, my main focus was <strong>Level Design</strong>, as I was one of the primary designers responsible for the map layout and key design decisions.</p>
+
+                <p>Since the game’s environment is one where <strong>being seen by the alien means near-certain death</strong>, we needed to create challenging situations while still providing <strong>opportunities for movement, distraction, and decision-making</strong>.</p>
+
+                <h3>Notable Level Design Elements</h3>
+                <ul>
+                    <li><strong>Circular map layout:</strong> Allows the player to continuously rotate around the environment, making it possible to escape the alien.</li>
+                    <li><strong>A complex network of corridors, passages, and interconnected rooms:</strong> Adds an extra layer of strategy and positioning for the player.</li>
+                    <li><strong>Strategic room placement:</strong> Forces the player to stay on the move, preventing safe zones or long-term hiding spots.</li>
+                    <li><strong>Lighting, FX, and sound design:</strong> Not only enhance immersion and heighten the player’s senses but also make it harder to pinpoint the exact location of the lurking threat.</li>
+                </ul>
+
+                <h3>Design Process</h3>
+                <p>Once the team agreed on the core characteristics of the map, the designers started working on building an environment that integrated all the previously mentioned elements. We began with a <strong>blockout</strong>, testing <strong>scale, movement, and overall layout</strong>, making small adjustments until we achieved a result we were satisfied with.</p>
+
+                <p>This was an incredibly <strong>engaging project</strong>, both from a <strong>3D modeling</strong> and <strong>Level Design</strong> perspective. It allowed me to gain valuable insight into the <strong>design principles behind psychological horror games</strong>, which focus less on fast-paced action and more on tension, atmosphere, and player psychology.</p>
+
                 <div class="project-details">
                     <h3>Role</h3>
-                    <p>[Your Role]</p>
+                    <p>Level Designer & 3D Artist</p>
                     
                     <h3>Technologies Used</h3>
-                    <p>[Technologies]</p>
+                    <p>Unreal Engine, Maya, ZBrush</p>
                     
                     <h3>Development Period</h3>
-                    <p>[Time Period]</p>
+                    <p>2023 - 2024</p>                    
                 </div>
+
+
+                <a href="https://mermelada-games.itch.io/mindabyss" class="itch-button" target="_blank">
+                    <img src="img/badge-color.png" alt="Available on itch.io">
+                </a>
             </div>
             
             <div class="project-media">
-                <img src="[Project Image Path]" alt="[Project Name]" class="project-image">
+                <iframe src="https://www.youtube.com/embed/PxIOovfEEuk" title="Project Video" allowfullscreen></iframe>
+                <img src="img/stelar.webp" alt="Mind's Abyss" class="project-image">
+                <img src="img/stelar.webp" alt="Mind's Abyss" class="project-image">
+                <img src="img/stelar.webp" alt="Mind's Abyss" class="project-image">
             </div>
-        </div>
-
-        <!-- Additional Content Section -->
-        <div class="additional-content">
-            <h2>Development Process</h2>
-            <p>[Detailed description of the development process, challenges, solutions, etc.]</p>
             
-            <div class="additional-images">
-                <img src="[Additional Image 1]" alt="Development Process 1">
-                <img src="[Additional Image 2]" alt="Development Process 2">
-                <img src="[Additional Image 3]" alt="Development Process 3">
+
+            <div class="additional-content">
+                <h2>Development Process</h2>
+                <p>[Detailed description of the development process, challenges, solutions, etc.]</p>
+                
+                <div class="additional-images">
+                    <img src="img/stelar.webp" alt="Mind's Abyss" class="project-image">
+                    <img src="img/stelar.webp" alt="Mind's Abyss" class="project-image">
+                    <img src="img/stelar.webp" alt="Mind's Abyss" class="project-image">
+                </div>
             </div>
         </div>
     </div>
