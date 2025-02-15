@@ -82,11 +82,11 @@
         }
 
         .project-content {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 40px;
-            margin-top: 40px;
-            align-items: start;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 40px;
+        margin-top: 40px;
+        align-items: start;
         }
 
         .project-info {
@@ -148,8 +148,10 @@
         }
 
         .additional-content {
+            grid-column: 1 / -1; /* Esto hace que ocupe todas las columnas disponibles */
             margin-top: 60px;
             padding: 20px;
+            width: 100%;
         }
 
         .additional-content h2 {
@@ -160,15 +162,23 @@
 
         .additional-images {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px; /* Aumentado de 20px */
-            margin-top: 40px; /* Aumentado de 30px */
+            grid-template-columns: repeat(2, 1fr); /* Cambiado a 2 imágenes por fila */
+            gap: 30px; /* Aumentado el espacio entre imágenes */
+            margin-top: 30px;
         }
 
         .additional-images img {
             width: 100%;
+            aspect-ratio: 16 / 9; /* Mantiene la misma proporción que las imágenes del proyecto-media */
+            object-fit: cover;
             border-radius: 10px;
             box-shadow: 0 0 20px rgba(223, 191, 49, 0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .additional-images img:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(223, 191, 49, 0.3);
         }
 
         .project-details {
@@ -225,6 +235,26 @@
                 gap: 20px;
             }
         }
+
+        @media (max-width: 992px) {
+        .additional-images {
+            grid-template-columns: repeat(2, 1fr); /* 2 imágenes por fila en tablets */
+        }
+        }
+
+        @media (max-width: 768px) {
+        .additional-images {
+            grid-template-columns: 1fr; /* 1 imagen por fila en móviles */
+            gap: 20px;
+        }
+    }
+
+        @media (max-width: 576px) {
+            .additional-images {
+                grid-template-columns: 1fr; /* 1 imagen por fila en móviles */
+            }
+        }
+
     </style>
 </head>
 <body>
@@ -271,17 +301,14 @@
                     <p>2023 - 2024</p>                    
                 </div>
 
-
-                <a href="https://mermelada-games.itch.io/mindabyss" class="itch-button" target="_blank">
-                    <img src="img/badge-color.png" alt="Available on itch.io">
-                </a>
             </div>
             
             <div class="project-media">
-                <iframe src="https://www.youtube.com/embed/PxIOovfEEuk" title="Project Video" allowfullscreen></iframe>
-                <img src="img/stelar.webp" alt="Mind's Abyss" class="project-image">
-                <img src="img/stelar.webp" alt="Mind's Abyss" class="project-image">
-                <img src="img/stelar.webp" alt="Mind's Abyss" class="project-image">
+                <iframe src="https://www.youtube.com/embed/1JzC-A4RfcM" title="Project Video" allowfullscreen></iframe>
+                <img src="img/alien3.png" alt="Mind's Abyss" class="project-image">
+                <img src="img/alien1.png" alt="Mind's Abyss" class="project-image">
+                <img src="img/alien4.png" alt="Mind's Abyss" class="project-image">
+                <img src="img/alien2.png" alt="Mind's Abyss" class="project-image">
             </div>
             
 
@@ -290,9 +317,9 @@
                 <p>[Detailed description of the development process, challenges, solutions, etc.]</p>
                 
                 <div class="additional-images">
-                    <img src="img/stelar.webp" alt="Mind's Abyss" class="project-image">
-                    <img src="img/stelar.webp" alt="Mind's Abyss" class="project-image">
-                    <img src="img/stelar.webp" alt="Mind's Abyss" class="project-image">
+                    <img src="img/alieninfo.png" alt="Mind's Abyss" class="project-image">
+                    <img src="img/alieninfo1.png" alt="Mind's Abyss" class="project-image">
+                    <img src="img/alieninfo2.png" alt="Mind's Abyss" class="project-image">
                 </div>
             </div>
         </div>

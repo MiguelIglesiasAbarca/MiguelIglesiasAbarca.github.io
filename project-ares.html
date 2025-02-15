@@ -20,21 +20,30 @@
             left: 0;
             right: 0;
             background-color: rgba(9, 13, 0, 0.9);
-            padding: 15px 0;
+            padding: 20px 0;
             z-index: 1000;
+            text-align: left;
+            padding-left: 40px;
         }
 
         .nav-bar a {
             color: rgba(255,255,255,.75);
             text-decoration: none;
             font-family: 'Neuton', sans-serif;
-            font-size: 1.2em;
-            transition: color 0.3s ease;
+            font-size: 1.4em;
+            transition: all 0.3s ease;
             margin-left: 20px;
+            background-color: rgba(223, 191, 49, 0.1);
+            padding: 12px 25px;
+            border-radius: 8px;
+            border: 1px solid rgba(223, 191, 49, 0.3);
         }
 
         .nav-bar a:hover {
             color: #dfbf31;
+            background-color: rgba(223, 191, 49, 0.2);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(223, 191, 49, 0.2);
         }
 
         .project-container {
@@ -73,11 +82,11 @@
         }
 
         .project-content {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 40px;
-            margin-top: 40px;
-            align-items: start;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 40px;
+        margin-top: 40px;
+        align-items: start;
         }
 
         .project-info {
@@ -107,16 +116,42 @@
             color: #dfbf31;
             margin-bottom: 15px;
         }
+               
+        .project-media {
+            display: flex;
+            flex-direction: column;
+            gap: 30px; /* Aumentado de 20px */
+        }
+
+        .project-media iframe {
+            width: 100%;
+            aspect-ratio: 16 / 9; /* Mantiene la relación de aspecto del video */
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(223, 191, 49, 0.2);
+        }
+
+
+        .project-media img {
+            margin-bottom: 10px;
+        }
 
         .project-image {
             width: 100%;
             border-radius: 10px;
             box-shadow: 0 0 20px rgba(223, 191, 49, 0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .project-image:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(223, 191, 49, 0.3);
         }
 
         .additional-content {
+            grid-column: 1 / -1; /* Esto hace que ocupe todas las columnas disponibles */
             margin-top: 60px;
             padding: 20px;
+            width: 100%;
         }
 
         .additional-content h2 {
@@ -127,15 +162,48 @@
 
         .additional-images {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 20px;
+            grid-template-columns: repeat(2, 1fr); /* Cambiado a 2 imágenes por fila */
+            gap: 30px; /* Aumentado el espacio entre imágenes */
             margin-top: 30px;
         }
 
         .additional-images img {
             width: 100%;
+            aspect-ratio: 16 / 9; /* Mantiene la misma proporción que las imágenes del proyecto-media */
+            object-fit: cover;
             border-radius: 10px;
             box-shadow: 0 0 20px rgba(223, 191, 49, 0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .additional-images img:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(223, 191, 49, 0.3);
+        }
+
+        .project-details {
+            margin-top: 30px;
+            background: rgba(223, 191, 49, 0.1);
+            padding: 20px;
+            border-radius: 10px;
+        }
+
+        .itch-button {
+            display: block;
+            margin-top: 20px;
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .itch-button:hover {
+            transform: translateY(-5px);
+        }
+
+        .itch-button img {
+            max-width: 200px;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(223, 191, 49, 0.2);
         }
 
         @media (max-width: 768px) {
@@ -151,6 +219,42 @@
                 grid-template-columns: 1fr;
             }
         }
+
+        /* Ajustes responsive */
+        @media (max-width: 768px) {
+            .nav-bar {
+                padding-left: 20px;
+            }
+            
+            .nav-bar a {
+                font-size: 1.2em;
+                padding: 10px 20px;
+            }
+            
+            .additional-images {
+                gap: 20px;
+            }
+        }
+
+        @media (max-width: 992px) {
+        .additional-images {
+            grid-template-columns: repeat(2, 1fr); /* 2 imágenes por fila en tablets */
+        }
+        }
+
+        @media (max-width: 768px) {
+        .additional-images {
+            grid-template-columns: 1fr; /* 1 imagen por fila en móviles */
+            gap: 20px;
+        }
+    }
+
+        @media (max-width: 576px) {
+            .additional-images {
+                grid-template-columns: 1fr; /* 1 imagen por fila en móviles */
+            }
+        }
+
     </style>
 </head>
 <body>
@@ -159,45 +263,62 @@
     </nav>
 
     <div class="project-container">
-        <h1 class="project-title">[Project Title]</h1>
-        
-        <!-- Video Section -->
-        <div class="video-container">
-            <iframe src="[Video URL]" title="Project Video" allowfullscreen></iframe>
-        </div>
+        <h1 class="project-title">Mind's Abyss</h1>
+      
 
-        <!-- Main Content -->
         <div class="project-content">
             <div class="project-info">
                 <h2>About the Project</h2>
-                <p>[Project Description]</p>
+                <p>This is my most recent project to date and the one I feel most proud of. In just <strong>eight days</strong>, my team and I managed to create our most <strong>engaging and mechanically innovative</strong> product. Thanks to a highly skilled technical team that brought the mechanics to life and an artist who perfectly matched the project's vision, we crafted a game that exceeded our expectations.</p>
+                
+                <p><strong>Ares Atlas</strong> was the <strong>winner of the Best Technology award</strong> and received <strong>honorable mentions</strong> for both <strong>Best Game</strong> and <strong>Best Design</strong>. It was a major design challenge, especially when the theme, <strong>“Evolution: Trial and Error”</strong>, was revealed. We spent over <strong>24 hours brainstorming, conceptualizing, and prototyping</strong> before landing on a solid foundation that the entire team believed in.</p>
+                
+                <p>From there, we developed multiple general levels for <strong>playtesting</strong>. As the days progressed, we expanded the game with <strong>various biomes</strong>, a <strong>comprehensive tutorial</strong> to ensure accessibility for a wide audience, and levels featuring <strong>challenging elements</strong> that introduced additional layers of complexity.</p>
+                
+                <p>I am incredibly proud to have conceptualized such an ambitious project in such a short timeframe and to have worked with a talented team that made it possible while staying mindful of our limitations.</p>
+                
+                <h3>Key Design Elements</h3>
+                <ul>
+                    <li><strong>2D-to-3D transformation:</strong> A mechanic that completely changes how the game is played and how players approach each level, despite maintaining the same core objective.</li>
+                    <li><strong>Well-structured tutorial:</strong> Ensures that every player fully understands the game’s mechanics from the beginning.</li>
+                    <li><strong>Layered complexity:</strong> The introduction of structures such as scaffolds, tunnels, and floating blocks adds significant depth to the gameplay.</li>
+                </ul>
                 
                 <div class="project-details">
                     <h3>Role</h3>
-                    <p>[Your Role]</p>
+                    <p>Lead Designer</p>
                     
                     <h3>Technologies Used</h3>
-                    <p>[Technologies]</p>
+                    <p>Unity, C#, Blender</p>
                     
                     <h3>Development Period</h3>
-                    <p>[Time Period]</p>
+                    <p>2024</p>                    
                 </div>
+                
+
+
+                <a href="https://mermelada-games.itch.io/mindabyss" class="itch-button" target="_blank">
+                    <img src="img/badge-color.png" alt="Available on itch.io">
+                </a>
             </div>
             
             <div class="project-media">
-                <img src="[Project Image Path]" alt="[Project Name]" class="project-image">
+                <iframe src="https://www.youtube.com/embed/PxIOovfEEuk" title="Project Video" allowfullscreen></iframe>
+                <img src="img/stelar.webp" alt="Mind's Abyss" class="project-image">
+                <img src="img/stelar.webp" alt="Mind's Abyss" class="project-image">
+                <img src="img/stelar.webp" alt="Mind's Abyss" class="project-image">
             </div>
-        </div>
-
-        <!-- Additional Content Section -->
-        <div class="additional-content">
-            <h2>Development Process</h2>
-            <p>[Detailed description of the development process, challenges, solutions, etc.]</p>
             
-            <div class="additional-images">
-                <img src="[Additional Image 1]" alt="Development Process 1">
-                <img src="[Additional Image 2]" alt="Development Process 2">
-                <img src="[Additional Image 3]" alt="Development Process 3">
+
+            <div class="additional-content">
+                <h2>Development Process</h2>
+                <p>[Detailed description of the development process, challenges, solutions, etc.]</p>
+                
+                <div class="additional-images">
+                    <img src="img/stelar.webp" alt="Mind's Abyss" class="project-image">
+                    <img src="img/stelar.webp" alt="Mind's Abyss" class="project-image">
+                    <img src="img/stelar.webp" alt="Mind's Abyss" class="project-image">
+                </div>
             </div>
         </div>
     </div>
