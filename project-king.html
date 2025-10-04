@@ -61,26 +61,6 @@
             padding-top: 40px;
         }
 
-        .video-container {
-            width: 100%;
-            margin-bottom: 40px;
-            position: relative;
-            padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
-            height: 0;
-            overflow: hidden;
-            border-radius: 10px;
-            box-shadow: 0 0 20px rgba(223, 191, 49, 0.2);
-        }
-
-        .video-container iframe {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            border: none;
-        }
-
         .project-content {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -120,19 +100,14 @@
         .project-media {
             display: flex;
             flex-direction: column;
-            gap: 30px; /* Aumentado de 20px */
+            gap: 30px;
         }
 
         .project-media iframe {
             width: 100%;
-            aspect-ratio: 16 / 9; /* Mantiene la relación de aspecto del video */
+            aspect-ratio: 16 / 9;
             border-radius: 10px;
             box-shadow: 0 0 20px rgba(223, 191, 49, 0.2);
-        }
-
-
-        .project-media img {
-            margin-bottom: 10px;
         }
 
         .project-image {
@@ -148,8 +123,10 @@
         }
 
         .additional-content {
+            grid-column: 1 / -1;
             margin-top: 60px;
             padding: 20px;
+            width: 100%;
         }
 
         .additional-content h2 {
@@ -160,24 +137,57 @@
 
         .additional-images {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px; /* Aumentado de 20px */
-            margin-top: 40px; /* Aumentado de 30px */
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+            margin-top: 30px;
         }
 
         .additional-images img {
             width: 100%;
+            aspect-ratio: 16 / 9;
+            object-fit: cover;
             border-radius: 10px;
             box-shadow: 0 0 20px rgba(223, 191, 49, 0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
 
-        .project-details {
-            margin-top: 30px;
-            background: rgba(223, 191, 49, 0.1);
-            padding: 20px;
-            border-radius: 10px;
+        .additional-images img:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(223, 191, 49, 0.3);
         }
 
+        @media (max-width: 768px) {
+            .project-content {
+                grid-template-columns: 1fr;
+            }
+
+            .project-title {
+                font-size: 2em;
+            }
+
+            .additional-images {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 992px) {
+            .additional-images {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .additional-images {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .additional-images {
+                grid-template-columns: 1fr;
+            }
+        }
         .itch-button {
             display: block;
             margin-top: 20px;
@@ -196,35 +206,6 @@
             box-shadow: 0 4px 15px rgba(223, 191, 49, 0.2);
         }
 
-        @media (max-width: 768px) {
-            .project-content {
-                grid-template-columns: 1fr;
-            }
-
-            .project-title {
-                font-size: 2em;
-            }
-
-            .additional-images {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        /* Ajustes responsive */
-        @media (max-width: 768px) {
-            .nav-bar {
-                padding-left: 20px;
-            }
-            
-            .nav-bar a {
-                font-size: 1.2em;
-                padding: 10px 20px;
-            }
-            
-            .additional-images {
-                gap: 20px;
-            }
-        }
     </style>
 </head>
 <body>
@@ -233,49 +214,44 @@
     </nav>
 
     <div class="project-container">
-        <h1 class="project-title">Stelar</h1>
+        <h1 class="project-title">Wheels and Wings</h1>
       
-
         <div class="project-content">
             <div class="project-info">
+                <h2>About the Project</h2>
                 <div class="project-details">
                     <h3>Role</h3>
-                    <p>Game & Level Designer, 2D Artist</p>
+                    <p>Level Designer, 3D artist</p>
                     
                     <h3>Technologies Used</h3>
-                    <p>Unity, Photoshop, Figma</p>
+                    <p>Unity, Blender, Figma</p>
                     
                     <h3>Development Period</h3>
-                    <p>20/10/2023 - 26/10/2023 (6 days)</p>                    
+                    <p>Jan 2024 – Jun 2024   (6 months)</p>                    
                 </div>
-                <h2>About the Project</h2>
-                <p><strong>Stelar</strong> was created for the Indie TRS Game Jam in just six days. It was my second game ever, and to this day, it remains a project I am incredibly proud of. It was through this game that I discovered my passion for <strong>Level Design</strong>, as I found immense satisfaction in watching people play, gathering feedback, and seeing firsthand how they enjoyed the experience while engaging in thoughtful problem-solving.</p>
+                <p><strong>Wheels and Wings</strong> is a puzzle-platformer prototype developed during the <strong>King x Trojan Horse was a Unicorn Mentorship Program</strong>. Over six months, our team designed and built a solarpunk-inspired experience where players accompany Litzi in search of her parrot, Sunny.</p>
 
-                <p>My team and I aimed to create a game with <strong>simple mechanics</strong> that still felt <strong>polished and complete</strong>. To achieve this, we researched references from relatively simple games from a technological standpoint. Once we had a solid idea of what we wanted to create, I started working on the <strong>initial design of the mechanics</strong> and a few basic levels to gather early feedback.</p>
+                <p>As Level Designer, my main responsibility was to create <strong>engaging, intuitive, and cozy levels</strong> that enhanced the core mechanics of the game. I worked on early sketches, iterated blockouts, and developed final playable layouts, ensuring smooth puzzle flow and accessibility.</p>
 
-                <p>Over the course of the jam, we iterated on our designs to refine an engaging and enjoyable core mechanic while considering our <strong>time constraints and technical limitations</strong>. Additionally, we implemented <strong>four special block types</strong> that added layers of complexity to the gameplay, making it both more <strong>challenging and entertaining</strong>.</p>
+                <p>The project explores the <strong>daily obstacles faced by people with motor disabilities</strong>, integrating them into gameplay mechanics to raise awareness while maintaining a fun and rewarding experience. The goal was to design a calm yet meaningful game, blending challenge with empathy.</p>
 
-                <p>Finally, we designed a <strong>simple tutorial</strong>, keeping our target audience in mind to ensure a smooth and accessible gameplay experience.</p>
-
-                <h3>Key Design Elements</h3>
-                <ul>
-                    <li><strong>Simple yet engaging core mechanic:</strong> Seamlessly integrated into the game's narrative, making it easy for both experienced and casual players to understand and enjoy.</li>
-                    <li><strong>Four unique elements:</strong> These mechanics introduce depth and complexity to the game, enhancing the challenge.</li>
-                    <li><strong>Text-free gameplay:</strong> This makes the game significantly more accessible to a wider audience.</li>
-                </ul>
+                <p>I’m really proud of what we created together, and grateful to King and THU for making this mentorship possible and to my teammates for their incredible collaboration and hard work.</p>
 
 
 
-                <a href="https://guillemalqueza.itch.io/stelar" class="itch-button" target="_blank">
+
+                <a href="https://sunnyteam.itch.io/wheels-wings" class="itch-button" target="_blank">
                     <img src="img/badge-color.png" alt="Available on itch.io">
                 </a>
             </div>
+
+            
             
             <div class="project-media">
-                <iframe src="https://www.youtube.com/embed/yRlHzyCVpUc" title="Project Video" allowfullscreen></iframe>
-                <img src="img/stelar1.webp" alt="Mind's Abyss" class="project-image">
-                <img src="img/stelar2.webp" alt="Mind's Abyss" class="project-image">
-                <img src="img/stelar3.webp" alt="Mind's Abyss" class="project-image">
+                <iframe src="https://www.youtube.com/embed/qWKPu9i7Tlg" title="Wheels and Wings Trailer" allowfullscreen></iframe>
+                <img src="img/waw1.webp" alt="Wheels and Wings screenshot" class="project-image">
+                <img src="img/waw2.webp" alt="Wheels and Wings screenshot" class="project-image">
+                <img src="img/waw3.webp" alt="Wheels and Wings screenshot" class="project-image">
             </div>
             
         </div>

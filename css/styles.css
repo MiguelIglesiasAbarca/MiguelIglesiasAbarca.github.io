@@ -1,6 +1,6 @@
 /* Añade estas reglas al principio del archivo CSS */
 * {
-    transition: color 0.5s ease, background-color 0.5s ease, border-color 0.5s ease;
+  transition: color 0.3s ease, background-color 0.3s ease, border-color 0.3s ease, transform 0.3s ease;
 }
 
 /* Combined and optimized CSS styles */
@@ -315,17 +315,155 @@ h2 {
     box-sizing: border-box;
 }
 
+/* --- General .work-item adjustments --- */
+/* Update this existing rule or add these properties to it */
 .work-item {
-    text-decoration: none;
-    color: inherit;
-    display: block;
-    background-color: rgba(255, 255, 255, 0.1);
+    background-color: rgba(222, 145, 80, 0.1);
     border-radius: 10px;
     overflow: hidden;
+    text-align: left;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
-    box-shadow: 0 0 40px 0px rgba(255, 255, 255, 0.096), 0 5px 15px rgba(255, 255, 255, 0.034);
-    width: 100%; /* Changed from min-width to width */
-    
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    position: relative;
+    cursor: pointer;
+    text-decoration: none; /* FIX: Remove underline for the link itself */
+    color: inherit; /* FIX: Ensure text color is inherited, preventing default blue link color */
+}
+
+/* Hover effect for work-item */
+.work-item:hover {
+    transform: translateY(-3px); /* FIX: Less dramatic lift (was -5px) */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); /* FIX: Softer shadow (was 0 8px 16px rgba(0, 0, 0, 0.4)) */
+}
+
+/* Overlay for work-item on hover */
+.work-item::before {
+    content: "VIEW PROJECT"; /* Text for the overlay */
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(222, 145, 80, 0.7); /* Semi-transparent background */
+    color: #fff;
+    font-family: 'Oswald', sans-serif;
+    font-size: 1.8em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0; /* Hidden by default */
+    transition: opacity 0.3s ease;
+    z-index: 1; /* Ensure it's above the image */
+    border-radius: 10px; /* Match border-radius of parent */
+    text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.work-item:hover::before {
+    opacity: 1; /* Visible on hover */
+}
+
+/* Ensure image and content are properly styled */
+.work-item img {
+    width: 100%;
+    height: 200px; /* Adjust as needed */
+    object-fit: cover;
+    border-radius: 10px 10px 0 0;
+    transition: transform 0.3s ease; /* For subtle image zoom on hover */
+}
+
+.work-item:hover img {
+    transform: scale(1.02); /* FIX: Reduced subtle zoom effect (was 1.05) */
+}
+
+.work-item-content {
+    padding: 20px;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.work-item-content h3 {
+    font-family: 'Oswald', sans-serif;
+    color: #de6150;
+    margin-top: 0;
+    margin-bottom: 10px;
+    font-size: 1.8em;
+}
+
+.work-item-content p {
+    font-size: 1em;
+    line-height: 1.5;
+    color: rgba(255,255,255,.75);
+    margin-bottom: 15px;
+}
+
+.work-item-content li {
+    font-size: 0.9em;
+    color: rgba(255,255,255,.6);
+    text-align: left;
+    margin-left: 20px;
+}
+
+/* Responsive adjustments for work-item */
+@media (min-width: 769px) {
+    .work-item::before {
+        content: "VIEW PROJECT";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(222, 145, 80, 0.5); /* FIX: Reduced opacity for softer look (was 0.7) */
+        color: #fff;
+        font-family: 'Oswald', sans-serif;
+        font-size: 1.8em;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+        z-index: 1;
+        border-radius: 10px;
+        text-shadow: 0 0 5px rgba(0, 0, 0, 0.4); /* FIX: Slightly softer text shadow */
+    }
+
+    .work-item:hover::before {
+        opacity: 1;
+    }
+
+    /* Hide the mobile-specific indicator on desktop */
+    .work-item-content::after {
+        content: none !important;
+        display: none !important;
+    }
+}
+
+@media (max-width: 768px) {
+    .work-item {
+        border: 2px solid rgba(222, 145, 80, 0.4);
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    }
+    .work-item::before {
+        content: none; /* Hide the desktop overlay on mobile */
+        opacity: 0;
+    }
+    .work-item-content::after {
+        content: "Tap to view →";
+        display: block;
+        margin-top: 15px;
+        font-size: 0.9em;
+        color: #de6150;
+        font-weight: bold;
+        text-align: right;
+        transition: transform 0.3s ease;
+    }
+    .work-item:active .work-item-content::after {
+        transform: translateX(5px);
+    }
 }
 
 .work-item:hover {
@@ -424,6 +562,70 @@ transform: translateY(-10px);
 
 .nav-bar.hidden {
     transform: translateY(-100%);
+}
+
+/* Adjustments for work-item to clearly show clickability on mobile */
+@media (max-width: 768px) {
+    .work-item {
+        border: 2px solid rgba(222, 145, 80, 0.4); /* Add a subtle border */
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); /* Slightly more prominent shadow */
+    }
+
+    /* Hide the hover overlay for mobile screens */
+    .work-item::before {
+        content: none; /* Hide the "VIEW PROJECT" overlay on mobile */
+        opacity: 0;
+    }
+
+    /* Add a visible indicator inside the work-item-content for mobile */
+    .work-item-content::after {
+        content: "Tap to view →"; /* Explicit text indicator */
+        display: block; /* Make it visible */
+        margin-top: 15px; /* Space it from content */
+        font-size: 0.9em;
+        color: #de6150; /* A contrasting color */
+        font-weight: bold;
+        text-align: right; /* Align to the right */
+        transition: transform 0.3s ease;
+    }
+
+    .work-item:active .work-item-content::after {
+        transform: translateX(5px); /* Small animation on tap for feedback */
+    }
+}
+
+/* Ensure the desktop hover effect remains for larger screens */
+@media (min-width: 769px) {
+    .work-item::before {
+        content: "VIEW PROJECT"; /* Re-enable for desktop */
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(222, 145, 80, 0.7);
+        color: #fff;
+        font-family: 'Oswald', sans-serif;
+        font-size: 1.8em;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+        z-index: 1;
+        border-radius: 10px;
+        text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    }
+
+    .work-item:hover::before {
+        opacity: 1;
+    }
+
+    /* Hide the mobile-specific indicator on desktop */
+    .work-item-content::after {
+        content: none !important;
+        display: none !important;
+    }
 }
 
 /* Estilos actualizados para el botón del menú móvil */
@@ -831,3 +1033,52 @@ body {
         height: 180px;
     }
 }
+
+.project-stats {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px 20px;
+    margin-top: 15px;
+    font-size: 0.9rem;
+}
+
+.project-stats div {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    background: rgba(223, 191, 49, 0.08);
+    padding: 6px 12px;
+    border-radius: 6px;
+    border: 1px solid rgba(223, 191, 49, 0.3);
+}
+
+.project-stats div span {
+    color: #f2f2f2;
+    font-weight: 500;
+}
+
+.project-stats i {
+    width: 18px;
+    height: 18px;
+    stroke: #dfbf31; /* color dorado */
+    stroke-width: 2;
+}
+
+.project-stats .award i {
+    stroke: gold;
+}
+
+.project-stats .mention i {
+    stroke: silver;
+}
+
+.project-stats div {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    background: rgba(223, 191, 49, 0.08);
+    padding: 6px 12px;
+    border-radius: 6px;
+    border: 1px solid rgba(223, 191, 49, 0.3);
+}
+
