@@ -120,16 +120,15 @@
         .project-media {
             display: flex;
             flex-direction: column;
-            gap: 30px; /* Aumentado de 20px */
+            gap: 30px;
         }
 
         .project-media iframe {
             width: 100%;
-            aspect-ratio: 16 / 9; /* Mantiene la relación de aspecto del video */
+            aspect-ratio: 16 / 9;
             border-radius: 10px;
             box-shadow: 0 0 20px rgba(223, 191, 49, 0.2);
         }
-
 
         .project-media img {
             margin-bottom: 10px;
@@ -148,7 +147,7 @@
         }
 
         .additional-content {
-            grid-column: 1 / -1; /* Esto hace que ocupe todas las columnas disponibles */
+            grid-column: 1 / -1;
             margin-top: 60px;
             padding: 20px;
             width: 100%;
@@ -162,14 +161,14 @@
 
         .additional-images {
             display: grid;
-            grid-template-columns: repeat(2, 1fr); /* Cambiado a 2 imágenes por fila */
-            gap: 30px; /* Aumentado el espacio entre imágenes */
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
             margin-top: 30px;
         }
 
         .additional-images img {
             width: 100%;
-            aspect-ratio: 16 / 9; /* Mantiene la misma proporción que las imágenes del proyecto-media */
+            aspect-ratio: 16 / 9;
             object-fit: cover;
             border-radius: 10px;
             box-shadow: 0 0 20px rgba(223, 191, 49, 0.2);
@@ -181,19 +180,36 @@
             box-shadow: 0 8px 25px rgba(223, 191, 49, 0.3);
         }
 
-        .project-details {
-            margin-top: 30px;
-            background: rgba(223, 191, 49, 0.1);
-            padding: 20px;
-            border-radius: 10px;
-        }
-
         .itch-button {
             display: block;
             margin-top: 20px;
             text-align: center;
             transition: transform 0.3s ease;
         }
+        .project-buttons {
+            margin-top: 40px; /* espacio respecto al bloque de arriba */
+            text-align: center; /* centra el botón */
+        }
+
+        .project-link {
+            display: inline-block;
+            background-color: rgba(223, 191, 49, 0.1);
+            color: #dfbf31;
+            font-weight: bold;
+            text-decoration: none;
+            padding: 12px 25px;
+            border-radius: 8px;
+            border: 1px solid rgba(223, 191, 49, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .project-link:hover {
+            background-color: rgba(223, 191, 49, 0.2);
+            transform: translateY(-5px);
+            box-shadow: 0 4px 15px rgba(223, 191, 49, 0.2);
+        }
+
+
 
         .itch-button:hover {
             transform: translateY(-5px);
@@ -220,38 +236,22 @@
             }
         }
 
-        /* Ajustes responsive */
-        @media (max-width: 768px) {
-            .nav-bar {
-                padding-left: 20px;
-            }
-            
-            .nav-bar a {
-                font-size: 1.2em;
-                padding: 10px 20px;
-            }
-            
-            .additional-images {
-                gap: 20px;
-            }
-        }
-
         @media (max-width: 992px) {
         .additional-images {
-            grid-template-columns: repeat(2, 1fr); /* 2 imágenes por fila en tablets */
+            grid-template-columns: repeat(2, 1fr);
         }
         }
 
         @media (max-width: 768px) {
         .additional-images {
-            grid-template-columns: 1fr; /* 1 imagen por fila en móviles */
+            grid-template-columns: 1fr;
             gap: 20px;
         }
     }
 
         @media (max-width: 576px) {
             .additional-images {
-                grid-template-columns: 1fr; /* 1 imagen por fila en móviles */
+                grid-template-columns: 1fr;
             }
         }
 
@@ -263,55 +263,79 @@
     </nav>
 
     <div class="project-container">
-        <h1 class="project-title">Ares Atlas</h1>
+        <h1 class="project-title">Hexam</h1>
       
-
         <div class="project-content">
             <div class="project-info">
+                <h2>About the Project</h2>
                 <div class="project-details">
                     <h3>Role</h3>
-                    <p>Game & Level Designer, 3D Artist</p>
+                    <p>Game & Level Designer, Artist</p>
                     
                     <h3>Technologies Used</h3>
-                    <p>Unity, C#, Blender, Figma</p>
+                    <p>Unity 6, Figma, Photoshop, Google Sheets (CSV system)</p>
                     
                     <h3>Development Period</h3>
-                    <p>22/01/2024 - 30/01/2024 (8 days)</p>                    
+                    <p>23/09/2025 - 30/10/2025 (≈ 1 month)</p>                    
                 </div>
-                <h2>About the Project</h2>
-                <p>In just <strong>eight days</strong>, my team and I managed to create our most <strong>engaging and mechanically innovative</strong> product. Thanks to a highly skilled technical team that brought the mechanics to life and an artist who perfectly matched the project's vision, we crafted a game that exceeded our expectations.</p>
                 
-                <p><strong>Ares Atlas</strong> was the <strong>winner of the Best Technology award</strong> and received <strong>honorable mentions</strong> for both <strong>Best Game</strong> and <strong>Best Design</strong>. It was a major design challenge, especially when the theme, <strong>“Evolution: Trial and Error”</strong>, was revealed. We spent over <strong>24 hours brainstorming, conceptualizing, and prototyping</strong> before landing on a solid foundation that the entire team believed in.</p>
-                
-                <p>From there, we developed multiple general levels for <strong>playtesting</strong>. As the days progressed, we expanded the game with <strong>various biomes</strong>, a <strong>comprehensive tutorial</strong> to ensure accessibility for a wide audience, and levels featuring <strong>challenging elements</strong> that introduced additional layers of complexity.</p>
-                
-                <p>I am incredibly proud to have conceptualized such an ambitious project in such a short timeframe and to have worked with a talented team that made it possible while staying mindful of our limitations.</p>
-                
-                <h3>Key Design Elements</h3>
+                <p>
+                    Hexam is an <strong>educational puzzle game</strong> for children aged 6 to 8, focused on reinforcing 
+                    <strong>Catalan</strong>, <strong>Math</strong>, <strong>Science</strong> and <strong>Music</strong> concepts through 
+                    short, accessible and <strong>highly replayable challenges</strong>. I designed the 
+                    <strong>core mechanics</strong>, <strong>level structure</strong>, <strong>UX</strong> and 
+                    <strong>accessibility systems</strong> to ensure an intuitive and engaging experience.
+                </p>
+
+                <p>
+                    I defined and prototyped the game’s five main mechanics—<strong>matching</strong>, <strong>ordering</strong>, 
+                    <strong>classifying</strong>, <strong>selecting</strong> and <strong>choosing</strong>—each designed to provide 
+                    strong <strong>visual feedback</strong> and support early <strong>cognitive development</strong>.
+                </p>
+
+                <p>
+                    I developed a <strong>progressive difficulty curve</strong> built around an interactive tutorial and 
+                    a sequence of <strong>easy</strong>, <strong>medium</strong> and <strong>hard levels</strong>, ensuring children learn 
+                    gradually without frustration.
+                </p>
+
+                <p>
+                    For <strong>level design</strong>, I implemented a <strong>modular system</strong> powered by over 
+                    <strong>250 CSV-based templates</strong>, keeping the game <strong>lightweight</strong> while enabling 
+                    extensive <strong>content scalability</strong> and <strong>replayability</strong>.
+                </p>
+
+                <p>
+                    I also designed several <strong>accessibility features</strong>, including customizable 
+                    <strong>typography</strong> (simple, cursive and dyslexia-friendly), 
+                    <strong>uppercase/lowercase modes</strong>, and validated <strong>color contrast</strong>, ensuring 
+                    the game adapts to diverse user needs.
+                </p>
+
                 <ul>
-                    <li><strong>2D-to-3D transformation:</strong> A mechanic that completely changes how the game is played and how players approach each level, despite maintaining the same core objective.</li>
-                    <li><strong>Well-structured tutorial:</strong> Ensures that every player fully understands the game’s mechanics from the beginning.</li>
-                    <li><strong>Layered complexity:</strong> The introduction of structures such as scaffolds, tunnels, and floating blocks adds significant depth to the gameplay.</li>
+                    <li><strong>Core Mechanics:</strong> matching, ordering, classifying, selecting, choosing</li>
+                    <li><strong>Fully scalable</strong> modular level system (250+ templates)</li>
+                    <li><strong>Child-friendly UX</strong> with strong visual feedback</li>
+                    <li><strong>Accessibility-first design</strong> for readability and inclusivity</li>
                 </ul>
+
+
                 
-
-                
-
-
-                <a href="https://mermelada-games.itch.io/ares-atlas" class="itch-button" target="_blank">
+                <div class="project-buttons">
+                <a href="https://mermelada-games.itch.io/hexam" class="itch-button" target="_blank">
                     <img src="img/badge-color.png" alt="Available on itch.io">
                 </a>
-            </div>
-            
-            <div class="project-media">
-                <iframe src="https://www.youtube.com/embed/Y_9aNOreWBg" title="Project Video" allowfullscreen></iframe>
-                <img src="img/ares4.webp" alt="ares-atlas" class="project-image">
-                <img src="img/ares1.webp" alt="ares-atlas" class="project-image">
-                <img src="img/ares3.webp" alt="ares-atlas" class="project-image">
-                <img src="img/ares2.webp" alt="ares-atlas" class="project-image">
-            </div>
-            
 
+            </div>       
+        </div>
+
+            <div class="project-media">
+        <iframe src="https://www.youtube.com/embed/YCgGi_d-GA0" title="Project Video" allowfullscreen></iframe>
+                <img src="img/hexam1.webp" alt="Hexam image" class="project-image">
+                <img src="img/hexam2.webp" alt="Hexam image" class="project-image">
+                <img src="img/hexam3.webp" alt="Hexam image" class="project-image">
+            </div>
+            
         </div>
     </div>
 </body>
