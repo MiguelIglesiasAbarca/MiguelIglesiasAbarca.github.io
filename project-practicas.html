@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Professional Internship</title>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;700&family=Neuton&family=Oswald:wght@700&family=Volkhov&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font: 400 1em/1.5 "Plus Jakarta Sans", sans-serif;
+            background: #090d00;
+            color: rgba(255,255,255,.75);
+            margin: 0;
+            padding: 0;
+        }
+
+        .nav-bar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background-color: rgba(9, 13, 0, 0.9);
+            padding: 20px 0;
+            z-index: 1000;
+            text-align: left;
+            padding-left: 40px;
+        }
+
+        .nav-bar a {
+            color: rgba(255,255,255,.75);
+            text-decoration: none;
+            font-family: 'Neuton', sans-serif;
+            font-size: 1.4em;
+            transition: all 0.3s ease;
+            margin-left: 20px;
+            background-color: rgba(223, 191, 49, 0.1);
+            padding: 12px 25px;
+            border-radius: 8px;
+            border: 1px solid rgba(223, 191, 49, 0.3);
+        }
+
+        .nav-bar a:hover {
+            color: #dfbf31;
+            background-color: rgba(223, 191, 49, 0.2);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(223, 191, 49, 0.2);
+        }
+
+        .project-container {
+            max-width: 1200px;
+            margin: 80px auto 50px;
+            padding: 0 20px;
+        }
+
+        .project-title {
+            text-align: center;
+            font-family: 'Oswald', sans-serif;
+            font-size: 3em;
+            color: #dfbf31;
+            margin: 40px 0;
+            padding-top: 40px;
+        }
+
+        .professional-badge {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .professional-badge span {
+            display: inline-block;
+            background: #dfbf31;
+            color: #090d00;
+            font-family: 'Oswald', sans-serif;
+            font-size: 0.8em;
+            font-weight: 700;
+            letter-spacing: 0.12em;
+            padding: 5px 18px;
+            border-radius: 4px;
+        }
+
+        .project-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            margin-top: 40px;
+            align-items: start;
+        }
+
+        .project-info {
+            padding: 20px;
+        }
+
+        .project-info h2 {
+            color: #dfbf31;
+            font-family: 'Oswald', sans-serif;
+            margin-bottom: 20px;
+        }
+
+        .project-info p {
+            font-size: 1.1em;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        .project-details {
+            margin-top: 30px;
+            background: rgba(223, 191, 49, 0.1);
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 30px;
+        }
+
+        .project-details h3 {
+            color: #dfbf31;
+            margin-bottom: 8px;
+            margin-top: 16px;
+        }
+
+        .project-details h3:first-child {
+            margin-top: 0;
+        }
+
+        .project-media {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+        }
+
+        .project-media iframe {
+            width: 100%;
+            aspect-ratio: 16 / 9;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(223, 191, 49, 0.2);
+        }
+
+        .project-image {
+            width: 100%;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(223, 191, 49, 0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .project-image:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(223, 191, 49, 0.3);
+        }
+
+        .project-buttons {
+            margin-top: 40px;
+            text-align: center;
+        }
+
+        .project-link {
+            display: inline-block;
+            background-color: rgba(223, 191, 49, 0.1);
+            color: #dfbf31;
+            font-weight: bold;
+            text-decoration: none;
+            padding: 12px 25px;
+            border-radius: 8px;
+            border: 1px solid rgba(223, 191, 49, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .project-link:hover {
+            background-color: rgba(223, 191, 49, 0.2);
+            transform: translateY(-5px);
+            box-shadow: 0 4px 15px rgba(223, 191, 49, 0.2);
+        }
+
+        @media (max-width: 768px) {
+            .project-content {
+                grid-template-columns: 1fr;
+            }
+            .project-title {
+                font-size: 2em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="nav-bar">
+        <a href="index.html">← Back to Portfolio</a>
+    </nav>
+
+    <div class="project-container">
+        <h1 class="project-title">Asphalt Legends Unite</h1>
+        <div class="professional-badge"><span>PROFESSIONAL EXPERIENCE</span></div>
+
+        <div class="project-content">
+            <div class="project-info">
+                <h2>About the Experience</h2>
+                <div class="project-details">
+                    <h3>Role</h3>
+                    <p>Level Design & Vehicle Balancing Intern</p>
+
+                    <h3>Technologies Used</h3>
+                    <p>Custom Engine, 3DS Max, Blender, Excel, Jira, Confluence, Communication & Production Software</p>
+
+                    <h3>Period</h3>
+                    <p>15/11/2025 - ongoing</p>
+                </div>
+
+                <p>
+                    I am currently completing my internship at Gameloft Barcelona, one of Gameloft’s key studios and a major contributor to the long-running <em>Asphalt</em> franchise. Gameloft is a global video game company known for developing successful mobile and cross-platform titles such as <em>Asphalt</em>, <em>Modern Combat</em>, and <em>Dungeon Hunter</em>.
+                </p>
+
+                <p>
+                    My main role is <strong>Level Design</strong> for <strong>Asphalt Legends Unite</strong>, where I design and build race track sections from scratch. I work closely with the art and design teams to ensure the levels are faithful to the game’s established style, while respecting technical and production constraints.
+                </p>
+
+                <p>
+                    I have also contributed to <strong>Car Creation</strong>, focusing on vehicle balancing, tuning, and gameplay testing. This involved working with Excel-based data, internal tools, and extensive testing to adjust vehicle performance and ensure balanced gameplay.
+                </p>
+
+                <p>
+                    Overall, this internship has given me hands-on experience in iterative level design, cross-disciplinary collaboration, and data-driven design within a production environment.
+                </p>
+
+                <ul>
+                    <li><strong>Designed and built race track sections for Asphalt Legends Unite from greybox to production-ready quality.</strong></li>
+                    <li><strong>Iterated on level layouts based on gameplay feedback, art direction, and technical constraints.</strong></li>
+                    <li><strong>Collaborated closely with environment artists and designers to ensure visual and gameplay consistency.</strong></li>
+                    <li><strong>Contributed to vehicle creation and balancing using Excel-based data, internal tools, and gameplay testing.</strong></li>
+                    <li><strong>Performed continuous playtesting to improve flow, readability, and overall racing experience.</strong></li>
+                </ul>
+
+
+                <div class="project-buttons">
+                    <a href="https://www.gameloft.com/gameloft-studios/barcelona" class="project-link" target="_blank">Visit Company</a>
+                </div>
+  
+            </div>
+
+            <div class="project-media">
+                <!-- Replace with your own video or remove if not applicable -->
+<iframe src="https://www.youtube.com/embed/rH-eZd01NEQ" title="Project Video" allowfullscreen></iframe>
+                <img src="img/gl2.webp" alt="Internship image" class="project-image">
+                <img src="img/gl3.webp" alt="Internship image" class="project-image">
+                <img src="img/gl4.webp" alt="Internship image" class="project-image">
+            </div>
+        </div>
+    </div>
+</body>
+</html>

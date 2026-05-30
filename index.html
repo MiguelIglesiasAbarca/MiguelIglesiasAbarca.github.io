@@ -9,6 +9,35 @@
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;700&family=Neuton&family=Oswald:wght@700&family=Volkhov&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
     <link rel="stylesheet" href="css/styles.css">
+    <style>
+        .section-subtitle {
+            font-family: 'Oswald', sans-serif;
+            font-size: 1.3em;
+            color: rgba(255,255,255,.45);
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            margin: 50px 0 20px;
+            text-align: left;
+            padding-left: 20px;
+        }
+        /* Project type tags */
+        .professional-tag {
+            position: absolute;
+            top: 14px;
+            right: 14px;
+            font-family: 'Oswald', sans-serif;
+            font-size: 0.65em;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            padding: 3px 10px;
+            border-radius: 4px;
+            z-index: 2;
+        }
+        .work-item--professional .professional-tag,
+        .tag-professional { background: #dfbf31; color: #090d00; }
+        .tag-personal  { background: rgba(222, 97, 80, 0.85); color: #fff; }
+        .tag-academic  { background: rgba(80, 160, 222, 0.85); color: #fff; }
+    </style>
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-G6BRJH13PM"></script>
     <script src="https://unpkg.com/lucide@latest"></script>
@@ -61,56 +90,37 @@
     <div class="content">
         <section id="works" class="portfolio">
             <h2>MY WORK & EXPERIENCE</h2>
-            <!-- Commented out 3D Art section
-            <div class="work-grid" id="3dArt">
-                <div class="work-item">
-                    <img src="img/bluedemon3.webp" alt="Blue Demon - 3D character & retopology">
-                    <div class="work-item-content">
-                        <h3>BLUE DEMON</h3>
-                        <p>Inspired by a concept from Lost Bear Studios, I crafted this Blue Demon model from start to finish. The process included sculpting, retopology, UV mapping, baking, and texturing.</p>
-                    </div>
-                </div>
-                <div class="work-item">
-                    <img src="img/axe1.webp" alt="Nordic Axe - 3D model and texturing">
-                    <div class="work-item-content">
-                        <h3>NORDIC AXE</h3>
-                        <p>This stylized Nordic Axe, based on a concept art, was created using skills in the entire workflow: sculpting, retopology, UV mapping, baking, and texturing.</p>
-                    </div>
-                </div>
-                <div class="work-item">
-                    <img src="img/scrap1.webp" alt="Scrap Gun - 3D model">
-                    <div class="work-item-content">
-                        <h3>SCRAP GUN</h3>
-                        <p>This Scrap Gun, used by RoadHog in Overwatch 2, was created using various references. I worked on it from scratch, including blocking, modeling, sculpting, etc.</p>
-                    </div>
-                </div>
-                <div class="work-item">
-                    <img src="img/rana1.webp" alt="Frog  - 3D model and texturing">
-                    <div class="work-item-content">
-                        <h3>MAGIC FROG</h3>
-                        <p>This project is based on an intriguing concept art. The entire process, including texturing, was completed in ZBrush.</p>
-                    </div>
-                </div>
-                <div class="work-item">
-                    <img src="img/bowsitos1.webp" alt="Bowsitos - 3D model and texturing">
-                    <div class="work-item-content">
-                        <h3>BOWSITOS</h3>
-                        <p>High-poly 3D character model completed entirely in ZBrush, where I experimented with different tools for optimization during the process. </p>
-                    </div>
-                </div>
 
-                <div class="work-item">
-                    <img src="img/cuphead1.webp" alt="Cuphead  - 3D model and texturing">
+            <!-- PROFESSIONAL EXPERIENCE -->
+            <h3 class="section-subtitle">Professional Experience</h3>
+            <div class="work-grid" id="professionalExperience">
+                <a href="project-practicas.html" class="work-item work-item--professional">
+                    <span class="professional-tag">PROFESSIONAL</span>
+                    <img src="img/glunite.webp" alt="Professional internship">
                     <div class="work-item-content">
-                        <h3>CUPHEAD</h3>
-                        <p>A simple project used for testing liquid simulations, both realistic and stylized. The model was entirely created in Blender.</p>
+                        <h3>Asphalt Legends Unite</h3>
+                        <div class="project-stats">
+                            <div class="team">
+                                <i data-lucide="briefcase"></i>
+                                <span>Internship</span>
+                            </div>
+                            <div class="time">
+                                <i data-lucide="clock"></i>
+                                <span>Ongoing</span>
+                            </div>
+                        </div>
+                        <p>During my internship at Gameloft Barcelona, I worked as a Level Design & Vehicle Balancing Intern on Asphalt Legends Unite. I created and iterated race track sections from scratch, collaborating with artists and designers while respecting gameplay, visual, and technical constraints. I also contributed to vehicle balancing using Excel, internal tools, and playtesting, supporting overall gameplay.</p>
                     </div>
-                </div>
+                </a>
             </div>
-             -->
+
+            <!-- ACADEMIC & PERSONAL PROJECTS -->
+            <h3 class="section-subtitle">Academic & Personal Projects</h3>
+
             <div class="work-grid" id="LevelDesign">
                 <!-- Elemento de trabajo -2 -->
                 <a href="project-hexam.html" class="work-item">
+                    <span class="professional-tag tag-personal">PERSONAL</span>
                     <img src="img/hexaminicial.webp" alt="crypts">
                     <div class="work-item-content">
                         <h3>Hexam</h3 >
@@ -135,6 +145,7 @@
                 </a>
                 <!-- Elemento de trabajo -1 -->
                 <a href="project-warhammer.html" class="work-item">
+                    <span class="professional-tag tag-academic">ACADEMIC</span>
                     <img src="img/whinicial.webp" alt="warhammer">
                     <div class="work-item-content">
                         <h3>Warhammer 40K: The Last Marine</h3 >
@@ -154,6 +165,7 @@
                 </a>
                 <!-- Elemento de trabajo 0 -->
                 <a href="project-king.html" class="work-item">
+                    <span class="professional-tag tag-personal">PERSONAL</span>
                     <img src="img/wawinicial.webp" alt="king">
                     <div class="work-item-content">
                         <h3>Wheels and Wings</h3 >
@@ -173,6 +185,7 @@
                 </a>
                 
                 <a href="project-ares.html" class="work-item">
+                    <span class="professional-tag tag-personal">PERSONAL</span>
                     <img src="img/aresintro.webp" alt="crypts">
                     <div class="work-item-content">
                         <h3>Ares Atlas </h3 >
@@ -206,6 +219,7 @@
                 </a>
                 <!-- Elemento de trabajo 2 -->
                 <a href="project-mots.html" class="work-item">
+                    <span class="professional-tag tag-personal">PERSONAL</span>
                     <img src="img/motsinicial.webp" alt="crypts">
                     <div class="work-item-content">
                         <h3>MOTS </h3 >
@@ -234,6 +248,7 @@
                 </a>
                 <!-- Elemento de trabajo 3 -->
                 <a href="project-spits-and-crypts.html" class="work-item">
+                    <span class="professional-tag tag-academic">ACADEMIC</span>
                     <img src="img/spitsinicial.webp" alt="crypts">
                     <div class="work-item-content">
                         <h3>Spits & Crypts </h3 >
@@ -254,6 +269,7 @@
                 </a>
                 <!-- Elemento de trabajo 4 -->
                 <a href="projectMindsAbyss.html" class="work-item">
+                    <span class="professional-tag tag-personal">PERSONAL</span>
                     <img src="img/mindsinicial.webp" alt="Mind's Abyss">
                     <div class="work-item-content">
                         <h3>Mind's Abyss </h3 >
@@ -278,6 +294,7 @@
                 </a>
                 <!-- Elemento de trabajo 5 -->
                 <a href="project-stelar.html" class="work-item">
+                    <span class="professional-tag tag-personal">PERSONAL</span>
                     <img src="img/stelarinicial.webp" alt="Stelar">
                     <div class="work-item-content">
                         <h3>Stelar </h3 >
@@ -307,6 +324,7 @@
 
                 <!-- Elemento de trabajo 6 -->
                 <a href="project-alien.html" class="work-item">
+                    <span class="professional-tag tag-academic">ACADEMIC</span>
                     <img src="img/alien.webp" alt="Alien">
                     <div class="work-item-content">
                         <h3>Aline Escape </h3 >
