@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project Details</title>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;700&family=Neuton&family=Oswald:wght@700&family=Volkhov&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font: 400 1em/1.5 "Plus Jakarta Sans", sans-serif;
+            background: #090d00;
+            color: rgba(255,255,255,.75);
+            margin: 0;
+            padding: 0;
+        }
+
+        .nav-bar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background-color: rgba(9, 13, 0, 0.9);
+            padding: 20px 0;
+            z-index: 1000;
+            text-align: left;
+            padding-left: 40px;
+        }
+
+        .nav-bar a {
+            color: rgba(255,255,255,.75);
+            text-decoration: none;
+            font-family: 'Neuton', sans-serif;
+            font-size: 1.4em;
+            transition: all 0.3s ease;
+            margin-left: 20px;
+            background-color: rgba(223, 191, 49, 0.1);
+            padding: 12px 25px;
+            border-radius: 8px;
+            border: 1px solid rgba(223, 191, 49, 0.3);
+        }
+
+        .nav-bar a:hover {
+            color: #dfbf31;
+            background-color: rgba(223, 191, 49, 0.2);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(223, 191, 49, 0.2);
+        }
+
+        .project-container {
+            max-width: 1200px;
+            margin: 80px auto 50px;
+            padding: 0 20px;
+        }
+
+        .project-title {
+            text-align: center;
+            font-family: 'Oswald', sans-serif;
+            font-size: 3em;
+            color: #dfbf31;
+            margin: 40px 0;
+            padding-top: 40px;
+        }
+
+        .video-container {
+            width: 100%;
+            margin-bottom: 40px;
+            position: relative;
+            padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+            height: 0;
+            overflow: hidden;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(223, 191, 49, 0.2);
+        }
+
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        .project-content {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 40px;
+        margin-top: 40px;
+        align-items: start;
+        }
+
+        .project-info {
+            padding: 20px;
+        }
+
+        .project-info h2 {
+            color: #dfbf31;
+            font-family: 'Oswald', sans-serif;
+            margin-bottom: 20px;
+        }
+
+        .project-info p {
+            font-size: 1.1em;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        .project-details {
+            margin-top: 30px;
+            background: rgba(223, 191, 49, 0.1);
+            padding: 20px;
+            border-radius: 10px;
+        }
+
+        .project-details h3 {
+            color: #dfbf31;
+            margin-bottom: 15px;
+        }
+               
+        .project-media {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+        }
+
+        .project-media iframe {
+            width: 100%;
+            aspect-ratio: 16 / 9;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(223, 191, 49, 0.2);
+        }
+
+        .project-media img {
+            margin-bottom: 10px;
+        }
+
+        .project-image {
+            width: 100%;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(223, 191, 49, 0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .project-image:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(223, 191, 49, 0.3);
+        }
+
+        .additional-content {
+            grid-column: 1 / -1;
+            margin-top: 60px;
+            padding: 20px;
+            width: 100%;
+        }
+
+        .additional-content h2 {
+            color: #dfbf31;
+            font-family: 'Oswald', sans-serif;
+            margin-bottom: 30px;
+        }
+
+        .additional-images {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+            margin-top: 30px;
+        }
+
+        .additional-images img {
+            width: 100%;
+            aspect-ratio: 16 / 9;
+            object-fit: cover;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(223, 191, 49, 0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .additional-images img:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(223, 191, 49, 0.3);
+        }
+
+        .itch-button {
+            display: block;
+            margin-top: 20px;
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+        .project-buttons {
+            margin-top: 40px; /* espacio respecto al bloque de arriba */
+            text-align: center; /* centra el botón */
+        }
+
+        .project-link {
+            display: inline-block;
+            background-color: rgba(223, 191, 49, 0.1);
+            color: #dfbf31;
+            font-weight: bold;
+            text-decoration: none;
+            padding: 12px 25px;
+            border-radius: 8px;
+            border: 1px solid rgba(223, 191, 49, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .project-link:hover {
+            background-color: rgba(223, 191, 49, 0.2);
+            transform: translateY(-5px);
+            box-shadow: 0 4px 15px rgba(223, 191, 49, 0.2);
+        }
+
+
+
+        .itch-button:hover {
+            transform: translateY(-5px);
+        }
+
+        .itch-button img {
+            max-width: 200px;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(223, 191, 49, 0.2);
+        }
+
+        @media (max-width: 768px) {
+            .project-content {
+                grid-template-columns: 1fr;
+            }
+
+            .project-title {
+                font-size: 2em;
+            }
+
+            .additional-images {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 992px) {
+        .additional-images {
+            grid-template-columns: repeat(2, 1fr);
+        }
+        }
+
+        @media (max-width: 768px) {
+        .additional-images {
+            grid-template-columns: 1fr;
+            gap: 20px;
+        }
+    }
+
+        @media (max-width: 576px) {
+            .additional-images {
+                grid-template-columns: 1fr;
+            }
+        }
+
+    </style>
+</head>
+<body>
+    <nav class="nav-bar">
+        <a href="index.html">← Back to Portfolio</a>
+    </nav>
+
+    <div class="project-container">
+        <h1 class="project-title">Audio Accessibility Tool</h1>
+      
+        <div class="project-content">
+            <div class="project-info">
+                <h2>About the Project</h2>
+                <div class="project-details">
+                    <h3>Role</h3>
+                    <p>Solo Developer — Game Designer, UX/UI Designer, Programmer</p>
+
+                    <h3>Technologies Used</h3>
+                    <p>Unity 2022.3 LTS (C#), Figma, Blender</p>
+
+                    <h3>Development Period</h3>
+                    <p>Final Degree Project — CITM, Universitat Politecnica de Catalunya</p>
+                </div>
+                
+                <p>
+                    A <strong>modular Unity tool</strong> that translates 3D spatial audio into
+                    <strong>visual indicators</strong>, allowing deaf and hard-of-hearing players to
+                    locate sound sources they cannot hear. Built as a <strong>reusable package</strong>
+                    any developer can drop into their own project.
+                </p>
+
+                <p>
+                    I have <strong>congenital unilateral hearing loss</strong>. This project started
+                    from the frustration of losing critical information in games that rely on directional
+                    audio, and became an attempt to solve it in a way other developers could actually use.
+                </p>
+
+                <p>
+                    The system detects active sound sources in the scene and projects them onto a
+                    <strong>360° ring HUD</strong>, encoding <strong>direction</strong> through position,
+                    <strong>distance</strong> through scale and a numeric readout, and
+                    <strong>intensity</strong> through animation. A <strong>priority-based filtering
+                    system</strong> prevents visual overload when many sounds compete for attention.
+                </p>
+
+                <p>
+                    Accessibility was designed in from the start: each sound category has its own
+                    <strong>shape</strong> as well as its own colour, and the palette is built on a
+                    <strong>luminance scale</strong> so categories stay distinguishable under
+                    <strong>protanopia, deuteranopia, tritanopia and full colour blindness</strong>.
+                    Controller <strong>haptics</strong> add a non-visual alert channel.
+                </p>
+
+                <p>
+                    Everything is configured through <strong>ScriptableObject profiles</strong> — no
+                    code required. Developers can also <strong>lock individual options</strong> from
+                    the Inspector when a setting would conflict with their game's core design.
+                </p>
+
+                <ul>
+                    <li><strong>360° ring HUD</strong> with direction, distance and intensity encoding</li>
+                    <li><strong>Colourblind-safe</strong> palette built on luminance separation</li>
+                    <li><strong>Priority filtering</strong> to prevent visual saturation</li>
+                    <li><strong>Controller haptics</strong> as a secondary alert channel</li>
+                    <li><strong>Zero-code integration</strong> via configurable profiles</li>
+                </ul>
+                
+                <div class="project-buttons">
+                    <a href="https://github.com/MiguelIglesiasAbarca/AudioAccessibilityTool/" target="_blank" class="project-link">
+                        🔗 Check out the project page
+                    </a>
+
+            </div>       
+        </div>
+
+        <div class="project-media">
+            <iframe src="https://www.youtube.com/embed/R4kdR7fhXHk" title="Project Video" allowfullscreen></iframe>
+                <img src="img/tfg2.webp" alt="tfg image" class="project-image">
+                <img src="img/tfg1.webp" alt="tfg image" class="project-image">
+                <img src="img/tfg3.webp" alt="tfg image" class="project-image">
+        </div>
+
+            <div class="additional-content">
+                <h2>Validation</h2>
+                <p>
+                    The tool was tested with <strong>15 participants</strong> across 675 trials, measuring
+                    angular error and response time under four conditions: stereo audio, stereo with the
+                    tool, mono with the tool, and full silence with the tool.
+                </p>
+                <p>
+                    Localisation error dropped from <strong>36.8° to under 4.4°</strong>, a
+                    <strong>91% improvement</strong>. Accurate localisations rose from
+                    <strong>27% to 98%</strong>. Every participant improved. Crucially, performance stayed
+                    the same in mono and in complete silence — the system works without any audio at all.
+                </p>
+                <p>
+                    The most relevant result was not the average, but the spread: individual error ranged
+                    from 14.7° to 68° without the tool, and from 1.8° to 6.5° with it. The system doesn't
+                    just improve performance — it <strong>levels the playing field between players</strong>.
+                </p>
+
+                <div class="additional-images">
+                    <img src="img/tfgr2.webp" alt="Error by condition">
+                    <img src="img/tfgr1.webp" alt="Per-participant results">
+                </div>
+            </div>
+            
+        </div>
+    </div>
+</body>
+</html>
